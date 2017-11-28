@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/Diablolical/CharacterSheet-CastlesAndCrusades#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
     "jquery": "^3.2.1",
     "vue": "^2.5.8"
   }
