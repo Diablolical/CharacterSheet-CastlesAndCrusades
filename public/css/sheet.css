@@ -1,0 +1,85 @@
+h1 {
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 10px 10px 0;
+    font-weight: 700;
+    padding-left: 28px;
+}
+
+header {
+    text-align: center;
+}
+
+input:not([type=checkbox]) {
+    height: 28px;
+    padding: 5px;
+    border: 1px solid rgba(84,75,49,.7);
+    font-family: Caudex,times,serif;
+    font-size: 20px;
+    text-align: center;
+    color: #222;
+    margin: 0;
+}
+
+input[readonly]
+{
+    background-color:#ddd;
+    color: #663;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+    margin: 0;
+    cursor: default;
+}
+
+article {
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
+#wrapper {
+    float: none;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px 0 65px 10px;
+    background: url(/images/bg.jpg) repeat left top;
+    box-shadow: 0 0 30px rgba(84,75,49,.7);
+}
+
+.logo {
+    margin-top: 30px;
+}
+
+.bigInput {
+    width: 400px;
+}
+
+.smallInput {
+    width: 150px;
+}
+
+.mediumInput {
+    width: 250px;
+}
+
+.container {
+    width: 100%;
+}
+
+.container div {
+    float: left;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.ability {
+    width: 50%;
+}
+
