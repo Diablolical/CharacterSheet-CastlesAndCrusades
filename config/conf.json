@@ -1,0 +1,61 @@
+{
+	"defaultData": {
+	    "general": {
+	        "name": "",
+	        "title": "",
+	        "race": "",
+	        "class": "",
+	        "alignment": "",
+	        "deity": "",
+	        "level": 0
+	    },
+	    "physical": {
+	        "age": "",
+	        "gender": "",
+	        "hair": "",
+	        "eyes": "",
+	        "height": "",
+	        "weight": "",
+            "clothing": "",
+	        "other": ""
+	    },
+	    "characterization": {
+	        "languages": "",
+	        "description": "",
+	        "personality": "",
+	        "background": ""
+	    },
+	    "attributes": {
+	        "str": 0,
+	        "dex": 0,
+	        "con": 0,
+	        "int": 0,
+	        "wis": 0,
+	        "cha": 0
+	    },
+	    "modifiers": {
+	        "strMod": "",
+	        "dexMod": "",
+	        "conMod": "",
+	        "intMod": "",
+	        "wisMod": "",
+	        "chaMod": ""
+	    },
+	    "level": {
+	        "level": 0,
+	        "experience": 0
+	    },
+	    "defense": {
+	        "armorAC": "",
+	        "shieldAC": "",
+	        "miscAC": "",
+	        "HP": ""
+	    },
+	    "offense": {
+	        "miscToHit": ""
+	    },
+	    "abilities": [],
+	    "weapons": [],
+	    "armor": []
+	}
+}

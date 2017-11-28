@@ -35,16 +35,22 @@
                         <div><label>Eye Color</label><input type="text" name="eyes" class="smallInput" v-model="physical.eyes"></div>
                         <div><label>Height</label><input type="text" name="height" class="smallInput" v-model="physical.height"></div>
                         <div><label>Weight</label><input type="text" name="weight" class="smallInput" v-model="physical.weight"></div>
-                        <div><label>Scars or other distinguishing traits</label><input type="textarea" name="physical-traits" v-model="physical.other"></div>
-                        <div><label>Clothing Style</label><input type="textarea" class="bigInput" name="clothing"></div>
-                        <div><label>Languages Known</label><input type="textarea" class="bigInput" name="languages"></div>
+                        <div><label>Scars or other distinguishing traits</label><input  class="bigInput" rows="3" name="physical-traits" v-model="physical.other"></div>
+                        <div><label>Clothing Style</label><input  class="bigInput" name="clothing" v-model="physical.clothing"></div>
+                    </article>
+                    <article id="character">
+                        <h1>Additional Information</h1>
+                        <div><label>Languages Known</label><textarea name="languages" v-model="characterization.languages"></textarea></div>
+                        <div><label>Description</label><textarea name="description" v-model="characterization.description"></textarea></div>
+                        <div><label>Personality</label><textarea name="personality" v-model="characterization.personality"></textarea></div>
+                        <div><label>Background</label><textarea  name="background" v-model="characterization.background"></textarea></div>
                     </article>
                     <article id="attributes">
                         <h1>Attributes</h1>
                         <section>
                             <div class="ability">
                                 <div>
-                                    <label>Strength</label>
+                                    <label class="large">Strength</label>
                                 </div>
                                 <div>
                                     <input type="text" name="str" class="smallInput" v-model="attributes.str">
@@ -61,7 +67,7 @@
                             </div>
                             <div class="ability">
                                 <div>
-                                    <label>Dexterity</label>
+                                    <label class="large">Dexterity</label>
                                 </div>
                                 <div>
                                     <input type="text" name="dex" class="smallInput" v-model="attributes.dex">
@@ -78,7 +84,7 @@
                             </div>
                             <div class="ability"> 
                                 <div>
-                                    <label>Constitution</label>
+                                   <label class="large">Constitution</label>
                                 </div>
                                 <div>
                                     <input type="text" name="con" class="smallInput" v-model="attributes.con">
@@ -95,7 +101,7 @@
                             </div>
                             <div class="ability">
                                 <div>
-                                    <label>Intelligence</label>
+                                    <label class="large">Intelligence</label>
                                 </div>
                                 <div>
                                     <input type="text" name="int" class="smallInput" v-model="attributes.int">
@@ -112,7 +118,7 @@
                             </div>
                             <div class="ability">
                                 <div>
-                                    <label>Wisdom</label>
+                                    <label class="large">Wisdom</label>
                                 </div>
                                 <div>
                                     <input type="text" name="wis" class="smallInput" v-model="attributes.wis">
@@ -129,7 +135,7 @@
                             </div>
                             <div class="ability">
                                 <div>
-                                    <label>Charisma</label></div>
+                                    <label class="large">Charisma</label></div>
                                 <div>
                                     <input type="text" name="cha" class="smallInput" v-model="attributes.cha">
                                     <label>Ability Score</label>
@@ -148,25 +154,25 @@
                     <article id="combat">
                         <h1>Defense</h1>
                         <section>
-                            <div><span>AC</span><label>Armor Class</label></div>
-                            <div><input type="text" name="ac" readonly="readonly" v-bind:value="armorClass"><label>Total =</label></div>
-                            <div><label>10+</label></div>
+                            <div><label class="large">Armor Class</label></div>
+                            <div><input type="text" name="ac" readonly="readonly" class="smallInput" v-bind:value="armorClass"><label>Total</label></div>
+                            <div><label class="large">10+</label></div>
                             <div>
-                                <input type="text" name="ac-armor-bonus" v-model="defense.armorAC">
+                                <input type="text" name="ac-armor-bonus" class="smallInput" v-model="defense.armorAC">
                                 <label>Armor</label>
                             </div>
                             <div>
-                                <input type="text" name="ac-shield-bonus" v-model="defense.shieldAC">
+                                <input type="text" name="ac-shield-bonus" class="smallInput" v-model="defense.shieldAC">
                                 <label>Shield</label>
                             </div>
                             <div>
-                                <input type="text" name="dex-modifier" readonly="readonly" v-bind:value="dexMod"><label>Attribute Modifier</label>
+                                <input type="text" name="dex-modifier" readonly="readonly" class="smallInput" v-bind:value="dexMod"><label>Attribute Modifier</label>
                             </div>
                             <div>
-                                <input type="text" name="ac-misc-modifier" v-model="defense.miscAC">
+                                <input type="text" name="ac-misc-modifier" class="smallInput" v-model="defense.miscAC">
                                 <label>Misc Modifier</label>
                             </div>
-                            <div><span>HP</span><label>Hit Points</label></div>
+                            <div><label class="large">Hit Points</label></div>
                             <div>
                                 <input type="text" name="hp-total" v-model="defense.HP">
                                 <label>Total</label>
@@ -180,24 +186,27 @@
                     <article id="offense">
                         <h1>Offense</h1>
                         <section>
-                           <div><label>To Hit</label></div>
-                            <div><input type="text" name="to-hit"  readonly="readonly" v-bind:value="toHit"><label>Total =</label></div>
-                            <div><label>20+</label></div>
+                           <div><label class="large">To Hit</label></div>
+                            <div><input type="text" name="to-hit"  readonly="readonly" class="smallInput" v-bind:value="toHit"><label>Total =</label></div>
+                            <div><label class="large">20+</label></div>
                             <div>
-                                <input type="text" name="dex-modifier" readonly="readonly" v-bind:value="dexMod"><label> Attribute Modifier</label>
+                                <input type="text" name="dex-modifier" readonly="readonly" class="smallInput" v-bind:value="dexMod"><label> Attribute Modifier</label>
                             </div>
+                            <div><label class="large">+</label></div>
                             <div>
-                                <input type="text" name="tohit-level-modifier" readonly="readonly" v-bind:value="this.general.level">
-                                <label>+ Level Bonus</label>
+                                <input type="text" name="tohit-level-modifier" readonly="readonly" class="smallInput" v-bind:value="this.general.level">
+                                <label>Level Bonus</label>
                             </div>
+                            <div><label class="large">+</label></div>
                             <div>
-                                <input type="text" name="tohit-misc-modifier" v-model="offense.miscToHit">
-                                <label>+ Misc Modifier</label>
+                                <input type="text" name="tohit-misc-modifier" class="smallInput" v-model="offense.miscToHit">
+                                <label>Misc Modifier</label>
                             </div>
                         </section>
                     </article>
                     <article id="experience" class="experience">
-                            <div><span>XP</span><label>Experience Points</label></div>
+                        <h1>Experience</h1>
+                            <div><label class="large">Experience Points</label></div>
                             <div>
                                 <input type="text" name="xp-total">
                                 <label>Total</label>
@@ -229,50 +238,72 @@
                     <article id="spells">
                         <h1>Spell List</h1>
                         <section>
-                            <div><label>Spell Level</label></div>
-                            <div><label>0th</label></div>
-                            <div><label>1st</label></div>
-                            <div><label>2nd</label></div>
-                            <div><label>3rd</label></div>
-                            <div><label>4th</label></div>
-                            <div><label>5th</label></div>
-                            <div><label>6th</label></div>
-                            <div><label>7th</label></div>
-                            <div><label>8th</label></div>
-                            <div><label>9th</label></div>
-                            <div><label>Spells Known</label></div>
-                            <div><input type="text" name="spells-known-0"></div>
-                            <div><input type="text" name="spells-known-1"></div>
-                            <div><input type="text" name="spells-known-2"></div>
-                            <div><input type="text" name="spells-known-3"></div>
-                            <div><input type="text" name="spells-known-4"></div>
-                            <div><input type="text" name="spells-known-5"></div>
-                            <div><input type="text" name="spells-known-6"></div>
-                            <div><input type="text" name="spells-known-7"></div>
-                            <div><input type="text" name="spells-known-8"></div>
-                            <div><input type="text" name="spells-known-9"></div>
-                            <div><label>Spells per Day</label></div>
-                            <div><input type="text" name="spells-perday-0"></div>
-                            <div><input type="text" name="spells-perday-1"></div>
-                            <div><input type="text" name="spells-perday-2"></div>
-                            <div><input type="text" name="spells-perday-3"></div>
-                            <div><input type="text" name="spells-perday-4"></div>
-                            <div><input type="text" name="spells-perday-5"></div>
-                            <div><input type="text" name="spells-perday-6"></div>
-                            <div><input type="text" name="spells-perday-7"></div>
-                            <div><input type="text" name="spells-perday-8"></div>
-                            <div><input type="text" name="spells-perday-9"></div>
-                            <div>Bonus Spells</label></div>
-                            <div><label>—</label></div>
-                            <div><input type="text" name="bonus-spells-1"></div>
-                            <div><input type="text" name="bonus-spells-2"></div>
-                            <div><input type="text" name="bonus-spells-3"></div>
-                            <div><input type="text" name="bonus-spells-4"></div>
-                            <div><input type="text" name="bonus-spells-5"></div>
-                            <div><input type="text" name="bonus-spells-6"></div>
-                            <div><input type="text" name="bonus-spells-7"></div>
-                            <div><input type="text" name="bonus-spells-8"></div>
-                            <div><input type="text" name="bonus-spells-9"></div>
+                            <div class="spell-table-row" id="spell-table-header">
+                                <div><label class="large">Spell Level</label></div>
+                                <div class="header-label"><label>Spells Known</label></div>
+                                <div class="header-label"><label>Spells per Day</label></div>
+                                <div class="header-label"><label>Bonus Spells</label></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">0th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-0"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-0"></div>
+                                <div class="placeholder"><label>—</label></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">1st</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-1"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-1"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-1"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">2nd</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-2"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-2"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-2"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">3rd</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-3"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-3"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-3"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">4th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-4"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-4"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-4"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">5th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-5"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-5"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-5"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">6th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-6"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-6"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-6"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">7th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-7"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-7"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-7"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">8th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-8"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-8"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-8"></div>
+                            </div>
+                            <div class="spell-table-row">
+                                <div><label class="large">9th</label></div>
+                                <div><input type="text" class="mediumInput" name="spells-known-9"></div>
+                                <div><input type="text" class="mediumInput" name="spells-perday-9"></div>
+                                <div><input type="text" class="mediumInput" name="bonus-spells-9"></div>
+                            </div>  
                         </section>
                     </article>
                 </form>
@@ -280,6 +311,7 @@
         </div>
         <footer>
         </footer>
+        <script type="text/javascript" src="jquery/jquery.min.js"></script>
         <script type="text/javascript" src="vue/vue.js"></script>
         <script type="text/javascript" src="js/rulesConf.js"></script>
         <script type="text/javascript" src="js/sheet.js"></script>

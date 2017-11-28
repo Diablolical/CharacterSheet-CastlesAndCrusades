@@ -1,6 +1,6 @@
 "use strict";
 
-var character = {
+var character =  {
     general: {
         name: "",
         title: "",
@@ -17,7 +17,14 @@ var character = {
         eyes: "",
         height: "",
         weight: "",
+        clothing: "",
         other: ""
+    },
+    characterization: {
+        languages: "",
+        description: "",
+        personality: "",
+        background: ""
     },
     attributes: {
         str: 0,
@@ -56,8 +63,6 @@ var character = {
         {type: "", ac: 0}
     ]
 };
-
-
 /*Vue.component('ability-modifier', {
     template : '<span><input type="text" name="con-modifier" v-bind:value="conMod" readonly="readonly"><label>Ability Modifier</label></span>',
 }); */
@@ -136,6 +141,13 @@ var app = new Vue({
             });
             console.log(this.attributes);
             return modifier;
+        },
+        save: function() {
+            this.$http.post('/', JSON.stringify(this.data), {
+                headers: {
+                   'Content-Type': 'application/json'
+               }
+            });
         }
     }
 });
@@ -147,7 +159,7 @@ Vue.component('weapon', {
 });
 
 Vue.component('armor', {
-  template: '<li>This is a todo</li>'
+  template: '<li>This is armor</li>'
 });
 
 Vue.component('item', {

@@ -25,7 +25,17 @@ input:not([type=checkbox]) {
 input[readonly]
 {
     background-color:#ddd;
-    color: #663;
+    color: #303;
+}
+
+textarea {
+    width: 24em;
+    height: 3em;
+    border: 1px solid rgba(84,75,49,.7);
+    font-family: Caudex,times,serif;
+    font-size: 20px;
+    color: #222;
+    margin: 0;
 }
 
 label {
@@ -37,6 +47,14 @@ label {
     margin: 0;
     cursor: default;
 }
+
+label.large {
+    font-size: 20;
+    font-family: Caudex,times,serif;
+    text-align: center;
+    padding:4px;
+}
+
 
 article {
     margin-bottom: 10px;
@@ -54,19 +72,22 @@ article {
 
 .logo {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .bigInput {
-    width: 400px;
+    width: 20em;
 }
 
 .smallInput {
-    width: 150px;
+    width: 7.5em;
 }
 
 .mediumInput {
-    width: 250px;
+    width: 12em;
 }
+
+
 
 .container {
     width: 100%;
@@ -80,6 +101,38 @@ article {
 }
 
 .ability {
-    width: 50%;
+    width: 47%;
+    margin-left:10px;
 }
+
+.ability label {
+    width: 120px;
+}
+
+.spell-table-row {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.spell-table-row label.large {
+    width: 4em;
+}
+
+.spell-table-row .placeholder {
+    font-size: 20px;
+    width: 12em;
+    text-align: center;
+}
+
+ #spell-table-header .header-label {
+    width: 12em;
+    text-align: center;
+    font-size: 20;
+ }
+
+ .header-label label {
+    font-size: 20;
+    font-family: Caudex,times,serif;
+    text-align: center;
+ }
 
