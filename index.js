@@ -22,6 +22,7 @@ app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist
 
 /*Request Handling*/
 app.param('id', (req, res, next, id) => {
+	console.log("Processing param: "+id);
 	var path = "tmp/"+id;
 	if (fs.existsSync(path)) {
 		fs.readFile(path, 'utf8', (err, data) => {
@@ -38,6 +39,7 @@ app.param('id', (req, res, next, id) => {
 });
 
 app.get('/:id', (req, res) => {
+	console.log("Getting for ID");
 	var characterData = req.character;
 	res.render('castlesandcrusades', {
         data: JSON.stringify(characterData)
@@ -45,6 +47,7 @@ app.get('/:id', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+	console.log("Getting without id");
 	var characterData = conf.defaultData;
 	res.render('castlesandcrusades', {
 		data: JSON.stringify(characterData)
@@ -52,13 +55,16 @@ app.get('/', (req, res) => {
 });
 /*literally just write JSONs to flat files for now. Add a proper DB at some point if deemed necessary */
 app.post('/', (req, res) => {
-	console.log(data);
+	
+	console.log("Posted");
+	var data = req.body;
 	//using name as ID for now
 	var id = data.general.name;
 	var path = "tmp/"+id;
 	var dataToWrite = JSON.stringify(data);
 	fs.writeFile(path, dataToWrite, (err) => {
 		if(err) {
+			console.log("Error");
 			var retObj = {
 				"success": 0,
 				"message": "Unable to save data",
@@ -67,8 +73,9 @@ app.post('/', (req, res) => {
 			res.send(JSON.stringify(retObj));
 			return console.log(err);
 		}
+		//console.log("redirecting");
 		//redirect to url of their saved character
-		res.redirect('/'+id);
+		//res.redirect('/'+id);
 		console.log("Saved data");
 	});
 });
