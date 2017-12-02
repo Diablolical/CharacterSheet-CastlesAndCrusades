@@ -520,37 +520,102 @@
 	"buffers":
 	[
 		{
-			"contents": "var app = new Vue({\n\tel : '#sheet',\n\tdata : character,\n\tcomputed : {\n\n\t}\n});\n\n\nvar character = {\n\tgeneral : {\n\t\tname : \"\",\n        title : \"\",\n        race : \"\",\n        alignment : \"\",\n        deity : \"\",\n\t},\n\tphysical : {\n\n\t},\n\tattributes : {\n\t\tstr : 0,\n\t\tdex : 0,\n\t\tcon : 0,\n\t\tint : 0,\n\t\twis : 0,\n\t\tcha : 0\n\t},\n\tlevel : {\n\n\t},\n\tabilities : {\n\n\t}\n\n}\n\nvar computeModifier = function() {\n\t\n};",
-			"file": "js/app.js",
-			"file_size": 430,
-			"file_write_time": 131552702166886037,
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 392,
+				"buffer_size": 67,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "var config = {\n\n\tattributes : {\n\t\tstr : {\n\t\t\tname : \"strength\",\n\t\t\tmodifiers : {\n\t\t\t\t\n\t\t\t}\n\t\t},\n\t\tdex : 0,\n\t\tcon : 0,\n\t\tint : 0,\n\t\twis : 0,\n\t\tcha : 0\n\t}\n\t\n};",
-			"file": "rulesConfig/conf.js",
-			"file_size": 21,
-			"file_write_time": 131552698099063412,
+			"file": "index.js",
 			"settings":
 			{
-				"buffer_size": 157,
+				"buffer_size": 2388,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/layouts/main.handlebars",
+			"settings":
+			{
+				"buffer_size": 471,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/castlesandcrusades.handlebars",
+			"settings":
+			{
+				"buffer_size": 17874,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/conf.json",
+			"settings":
+			{
+				"buffer_size": 1157,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<h1>test</h1>",
+			"file": "views/layouts/test.handlebars",
+			"file_size": 13,
+			"file_write_time": 131563721569586605,
+			"settings":
+			{
+				"buffer_size": 13,
 				"line_ending": "Windows",
-				"name": "var config = {"
+				"name": "<h1>test</h1>"
 			}
 		},
 		{
-			"file": "CharacterSheet.html",
+			"file": "tmp/Dailuaine",
 			"settings":
 			{
-				"buffer_size": 19167,
+				"buffer_size": 791,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/css/sheet.css",
+			"settings":
+			{
+				"buffer_size": 2192,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/sheet.js",
+			"settings":
+			{
+				"buffer_size": 5892,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tmp/test",
+			"settings":
+			{
+				"buffer_size": 595,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 894,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -561,10 +626,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 215.0,
-		"last_filter": "push",
+		"height": 490.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git",
+				"Git: Init"
+			],
 			[
 				"push",
 				"Git: Push Current Branch"
@@ -591,10 +668,6 @@
 			],
 			[
 				"git a",
-				"Git: Add All"
-			],
-			[
-				"git add",
 				"Git: Add All"
 			],
 			[
@@ -626,10 +699,6 @@
 				"Git: Commit"
 			],
 			[
-				"git commit",
-				"Git: Commit"
-			],
-			[
 				"git ignore",
 				"Git: Update Project Ignored Files"
 			],
@@ -640,10 +709,6 @@
 			[
 				"revert",
 				"File: Revert"
-			],
-			[
-				"git",
-				"Git: Commit"
 			],
 			[
 				"commit ",
@@ -799,13 +864,23 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades",
-		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/js",
-		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/rulesConfig"
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public/images",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public/js"
 	],
 	"file_history":
 	[
-		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/test.html",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/index.js",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/views/sheet.html",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/config/conf.json",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/tmp/Dailuaine",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/CharacterSheet.html",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/tmp/test",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/.gitignore",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/.gitignore.gitignore",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/.git/info/exclude",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/test.html",
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/platform/public/css/plexus_intl/styles.css",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Participant.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Person.php",
@@ -923,20 +998,11 @@
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/controllers/CheckoutController.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/forms/PaymentMethod_Select.php",
 		"/C/Users/AWilson/Downloads/tablesorter-master (1)/tablesorter-master/js/jquery.tablesorter.js",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/views/scripts/checkout/index.phtml",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/views/scripts/checkout/review.phtml",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/admin/application/views/scripts/store/cart.phtml",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/platform/application/controllers/AccountController.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/include/utils/plexusCssHelper.inc.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/include/utils/localizationHelper.inc.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/include/forms/CB_Sponsorship_Request.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/platform/application/controllers/PasswordController.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/admin/application/forms/Organization_Phone_Number_Assignment.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/platform/public/css/iatf/styles.css"
+		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/views/scripts/checkout/index.phtml"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -1007,11 +1073,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"ng",
-			"\"></div>",
-			"<input type=\"text\" name=\"",
-			"</label>",
-			"<div><label>",
+			"bodyParser",
+			"validData",
+			"\">",
+			":",
+			"<textarea>",
+			"</textarea> ",
+			"<input",
+			"<input type=\"text\"",
+			"</div>",
+			"<label>",
+			"'",
+			":",
+			"body",
+			"form",
+			"ng-model=",
+			"ng-model",
+			"ng-model=\"character.spells[0].totalPerDay\" class=\"ng-pristine ng-valid\"",
+			" g-valid\"",
+			"ng-model",
+			"class=\"w80\"",
+			"class=",
+			"Clothing",
+			"int",
+			"con",
+			"dex",
+			"Dex",
+			"dex",
+			"class=\"w100\"",
+			"ng-model=",
+			" class=",
+			"class=",
+			"ng-model=",
+			"class=",
 			"addC",
 			"taskAssignmentArray",
 			"$currentEO",
@@ -1106,35 +1200,7 @@
 			"$cartSalesProp",
 			".",
 			"$event",
-			"indexOf",
-			"hasClass",
-			"responseStats",
-			";",
-			"=",
-			"newblock.",
-			"newBlock.",
-			"MaxSpace",
-			"schedule",
-			"table.config.p",
-			"table.config.",
-			"table.config.parsers",
-			"res",
-			"resize",
-			"disabled",
-			"warning",
-			"\"",
-			"echo ",
-			"order",
-			"eventAssignmodule",
-			"IN ",
-			"IN",
-			"SystemDialectID",
-			"checkForActiveContact",
-			"setOrganizationID",
-			"getParam",
-			"getParams",
-			"Param",
-			"breadcrumbs"
+			"indexOf"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1156,81 +1222,81 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/app.js",
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 392,
+						"buffer_size": 67,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								247,
-								309
+								19,
+								19
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "rulesConfig/conf.js",
+					"file": "index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 157,
+						"buffer_size": 2388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								1175,
+								1175
 							]
 						],
 						"settings":
 						{
-							"auto_name": "var config = {",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "CharacterSheet.html",
+					"file": "views/layouts/main.handlebars",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19167,
+						"buffer_size": 471,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								379,
-								379
+								254,
+								254
 							]
 						],
 						"settings":
@@ -1243,7 +1309,243 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/castlesandcrusades.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17343,
+								17343
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4750.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "config/conf.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1093,
+								1093
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/layouts/test.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<h1>test</h1>",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "tmp/Dailuaine",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								791,
+								791
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/css/sheet.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2186,
+								2186
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1998.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/js/sheet.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								371,
+								493
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1080.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "tmp/test",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								593,
+								593
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 55.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
 					"type": "text"
 				}
 			]
@@ -1251,7 +1553,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1292,7 +1594,7 @@
 	"project": "character-sheet.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 53.0
 	},
 	"save_all_on_build": true,
 	"select_file":
