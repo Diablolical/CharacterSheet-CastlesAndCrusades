@@ -26,13 +26,32 @@
 	        "background": ""
 	    },
 	    "attributes": {
-	        "str": 0,
-	        "dex": 0,
-	        "con": 0,
-	        "int": 0,
-	        "wis": 0,
-	        "cha": 0
-	    },
+	        "str": {
+	        	"val": 0,
+	        	"primary": false
+	        },
+	        "dex": {
+	        	"val": 0,
+	        	"primary": false
+	        },
+	        "con": {
+	        	"val": 0,
+	        	"primary": false
+	        },
+	        "int": {
+	        	"val": 0,
+	        	"primary": false
+	        },
+	        "wis": {
+	        	"val": 0,
+	        	"primary": false
+	        },
+	        "cha": {
+	        	"val": 0,
+		        "primary": false
+		    },	    
+		},
+	    "primaryAttributes": [],
 	    "modifiers": {
 	        "strMod": "",
 	        "dexMod": "",
@@ -55,7 +74,20 @@
 	        "miscToHit": ""
 	    },
 	    "abilities": [],
-	    "weapons": [],
-	    "armor": []
+        "equipment": { 
+            "weapon": [ { "type": "", "weight": 0, "bonusToHit": 0, "bonusDamage": 0, "damage": 0, "special": "", "twoHanded": false } ],
+            "shield": [ { "type": "", "weight": 0, "acBonus": 0} ],
+            "armor": [ { "type": "", "weight": 0, "acBonus": 0} ],
+            "cloak": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": "" } ],
+            "amulet": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": ""} ],
+            "rings": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": ""} ],
+            "boots": [ { "type": "", "weight": 0, "other": ""} ]
+        },
+        "packItems": {
+            "weapons": [],
+            "armor": [],
+            "magicalItems": [],
+            "other": []
+        }
 	}
 }

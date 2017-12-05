@@ -35,7 +35,7 @@
         cha: 0
     },
     modifiers: {
-        strMod: "",
+        strMod: "", 
         dexMod: "",
         conMod: "",
         intMod: "",
@@ -96,12 +96,30 @@ if(typeof character !== "object")
             background: ""
         },
         attributes: {
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0
+            str: {
+                "val": 0,
+                "primary": false
+            },
+            dex: {
+                "val": 0,
+                "primary": false
+            },
+            con: {
+                "val": 0,
+                "primary": false
+            },
+            int: {
+                "val": 0,
+                "primary": false
+            },
+            wis: {
+                "val": 0,
+                "primary": false
+            },
+            cha: {
+                "val": 0,
+                "primary": false
+            }
         },
         modifiers: {
             strMod: "",
@@ -125,67 +143,82 @@ if(typeof character !== "object")
             miscToHit: ""
         },
         abilities: [],
-        weapons: [
-            {type: "", bonusToHit: 0, bonusDamage: 0, damage: 0, special: ""}
-        ],
-        armor: [
-            {type: "", ac: 0}
-        ]
+        equipment : { 
+            weapon: [ {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false } ],
+            shield: [ {type: "", weight: 0, acBonus: 0} ],
+            armor: [ {type: "", weight: 0, acBonus: 0} ],
+            cloak: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: "" } ],
+            amulet: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            rings: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""} ],
+            boots: [ { type: "", weight: 0, other: ""}]
+        },
+        packItems: {
+            weapons: [],
+            armor: [],
+            magicalItems: [],
+            other: []
+        }
     };
 }
 
 var app = new Vue({
     el: '#sheet',
-    data: character,
+    data: { 
+        "character": character,
+        "rules": rules
+    },
     computed: {
         strMod: function  () {
-            var val = parseInt(this.attributes.str);
+            var val = parseInt(this.character.attributes.str.val);
             return this.updateModifier(val);
         },
         dexMod: function () {
-            var val = parseInt(this.attributes.dex);
+            var val = parseInt(this.character.attributes.dex.val);
             return this.updateModifier(val);
         },
         conMod: function () {
-            var val = parseInt(this.attributes.con);
+            var val = parseInt(this.character.attributes.con.val);
             return this.updateModifier(val);
         },
         intMod: function() {
-            var val = parseInt(this.attributes.int);
+            var val = parseInt(this.character.attributes.int.val);
             return this.updateModifier(val);
         },
         wisMod: function () {
-            var val = parseInt(this.attributes.wis);
+            var val = parseInt(this.character.attributes.wis.val);
             return this.updateModifier(val);
         },
         chaMod: function () {
-            var val = parseInt(this.attributes.cha);
+            var val = parseInt(this.character.attributes.cha.val);
             return this.updateModifier(val);
         },
         armorClass: function() {
-            var ac = 10 + parseInt(this.dexMod);
-            if (this.defense.armorAC !== "") {
-                ac += parseInt(this.defense.armorAC);
+            var ac = 10 + parseInt(this.character.dexMod);
+            if (this.character.defense.armorAC !== "") {
+                ac += parseInt(this.character.defense.armorAC);
             }
-            if (this.defense.shieldAC !== "") {
-                ac += parseInt(this.defense.shieldAC);
+            if (this.character.defense.shieldAC !== "") {
+                ac += parseInt(this.character.defense.shieldAC);
             }
-            if (this.defense.miscAC !== "") {
-                ac += parseInt(this.defense.miscAC);
+            if (this.character.defense.miscAC !== "") {
+                ac += parseInt(this.character.defense.miscAC);
+            }
+            if (this.character.equipment.armor.acBonus !== 0) {
+                ac += parseInt(this.character.equipment.armor.acBonus);
             }
             return ac;
         },
         toHit: function() {
-            var toHit =  20 + parseInt(this.dexMod) + parseInt(this.general.level);
-            if (this.offense.miscToHit !== "") {
-                toHit += parseInt(this.offense.miscToHit);
+            var toHit =  20 + parseInt(this.character.dexMod) + parseInt(this.character.general.level);
+            if (this.character.offense.miscToHit !== "") {
+                toHit += parseInt(this.character.offense.miscToHit);
             }
             return toHit;
         }
     },
     methods: {
         updateModifier: function (val) {
-            if (typeof rules === "undefined" || !rules.hasOwnProperty('modifierLevels')) {
+            if (typeof this.rules === "undefined" || !this.rules.hasOwnProperty('modifierLevels')) {
                 alert("Unable to load rules!");
                 return;
             }
@@ -195,7 +228,7 @@ var app = new Vue({
             if (val >= 20) {
                 return 3;
             }
-            var levels = rules.modifierLevels;
+            var levels = this.rules.modifierLevels;
             var modifier = 0;
             Object.keys(levels).some(function (score){
                 if (val >= levels[score].min && val <= levels[score].max){
@@ -220,21 +253,41 @@ var app = new Vue({
             .fail(function(data){
                 console.log("Post failed with data: ",data);
             });
+        },
+        addItem: function(location, itemType){
+            var newItem = {};
+            switch(itemType){
+                case "weapon":
+                    newItem = {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false };
+                break;
+                case "shield":
+                    newItem = {type: "", weight: 0, acBonus: 0};
+                break;
+                case "armor":
+                    newItem = {type: "", weight: 0, acBonus: 0};
+                break;
+                case "magicalItem":
+                    newItem = {};
+                break;
+                default:
+                    newItem = {};
+            }
+            this[location][itemType].push(newItem);
         }
     }
 });
 
 
-/*
-Vue.component('weapon', {
-  template: '<li>This is a weapon</li>'
+
+/*Vue.component('weapon', {
+  template: '<li>This is a weapon</li>',
+  props: 
 });
 
-Vue.component('armor', {
+Vue.component ('armor', {
   template: '<li>This is armor</li>'
 });
 
 Vue.component('item', {
     template: '<li>THis is an item</li>'
-});
- */
+}); */

@@ -109,6 +109,11 @@ article {
     width: 120px;
 }
 
+.ability .primaryCheck {
+    text-align: center;
+    width: 60px;
+}
+
 .spell-table-row {
     width: 90%;
     margin-left: 5%;
