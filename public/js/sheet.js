@@ -35,7 +35,7 @@
         cha: 0
     },
     modifiers: {
-        strMod: "", 
+        strMod: "",
         dexMod: "",
         conMod: "",
         intMod: "",
@@ -66,18 +66,15 @@
 /*Vue.component('ability-modifier', {
     template : '<span><input type="text" name="con-modifier" v-bind:value="conMod" readonly="readonly"><label>Ability Modifier</label></span>',
 }); */
-if(typeof character !== "object")
-{
-    alert("Unable to load character data from server");
-    var character =  {
+if (typeof character !== "object") {
+    var character = {
         general: {
             name: "",
             title: "",
             race: "",
             class: "",
             alignment: "",
-            deity: "",
-            level: 0
+            deity: ""
         },
         physical: {
             age: "",
@@ -97,28 +94,28 @@ if(typeof character !== "object")
         },
         attributes: {
             str: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false
             },
             dex: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false
             },
             con: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false
             },
             int: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false
             },
             wis: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false
             },
             cha: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false
             }
         },
         modifiers: {
@@ -130,7 +127,7 @@ if(typeof character !== "object")
             chaMod: ""
         },
         level: {
-            level: 0,
+            level: 1,
             experience: 0
         },
         defense: {
@@ -143,14 +140,14 @@ if(typeof character !== "object")
             miscToHit: ""
         },
         abilities: [],
-        equipment : { 
-            weapon: [ {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false } ],
-            shield: [ {type: "", weight: 0, acBonus: 0} ],
-            armor: [ {type: "", weight: 0, acBonus: 0} ],
-            cloak: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: "" } ],
-            amulet: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
-            rings: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""} ],
-            boots: [ { type: "", weight: 0, other: ""}]
+        equipment: {
+            weapon: [{type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false}],
+            shield: [{type: "", weight: 0, acBonus: 0}],
+            armor: [{type: "", weight: 0, acBonus: 0}],
+            cloak: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            amulet: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            rings: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            boots: [{type: "", weight: 0, other: ""}]
         },
         packItems: {
             weapons: [],
@@ -163,12 +160,12 @@ if(typeof character !== "object")
 
 var app = new Vue({
     el: '#sheet',
-    data: { 
-        "character": character,
-        "rules": rules
+    data: {
+        character: character,
+        rules: rules
     },
     computed: {
-        strMod: function  () {
+        strMod: function () {
             var val = parseInt(this.character.attributes.str.val);
             return this.updateModifier(val);
         },
@@ -193,7 +190,7 @@ var app = new Vue({
             return this.updateModifier(val);
         },
         armorClass: function() {
-            var ac = 10 + parseInt(this.character.dexMod);
+            var ac = 10 + parseInt(this.dexMod);
             if (this.character.defense.armorAC !== "") {
                 ac += parseInt(this.character.defense.armorAC);
             }
@@ -204,16 +201,29 @@ var app = new Vue({
                 ac += parseInt(this.character.defense.miscAC);
             }
             if (this.character.equipment.armor.acBonus !== 0) {
-                ac += parseInt(this.character.equipment.armor.acBonus);
+                ac += parseInt(this.character.equipment.armor[0].acBonus);
             }
+            console.log(ac);
             return ac;
         },
+        levelToHitMod: function() {
+            if (this.character.general.class !== "") {
+                var className = this.character.general.class;
+                var classToHit = this.rules.classes[className].BtH[this.character.level.level];
+                console.log(classToHit);
+                return classToHit;
+            }
+        },
         toHit: function() {
-            var toHit =  20 + parseInt(this.character.dexMod) + parseInt(this.character.general.level);
+            var toHit =  20 + parseInt(this.dexMod);
+            console.log(toHit);
             if (this.character.offense.miscToHit !== "") {
                 toHit += parseInt(this.character.offense.miscToHit);
             }
             return toHit;
+        },
+        classNames: function() {
+            return Object.keys(this.rules.classes);
         }
     },
     methods: {
@@ -233,9 +243,9 @@ var app = new Vue({
             Object.keys(levels).some(function (score){
                 if (val >= levels[score].min && val <= levels[score].max){
                     modifier = score;
-                    return;
                 }
             });
+            console.log(modifier);
             return modifier;
         },
         save: function() {
@@ -247,16 +257,16 @@ var app = new Vue({
                     data: data,
                     contentType: "application/json"
             }))
-            .done(function(data){
-                console.log("Post success with data:",data);
+            .done(function (data) {
+                console.log("Post success with data:", data);
             })
-            .fail(function(data){
-                console.log("Post failed with data: ",data);
+            .fail(function (data) {
+                console.log("Post failed with data: ", data);
             });
         },
-        addItem: function(location, itemType){
+        addItem: function (location, itemType) {
             var newItem = {};
-            switch(itemType){
+            switch (itemType) {
                 case "weapon":
                     newItem = {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false };
                 break;
@@ -276,18 +286,3 @@ var app = new Vue({
         }
     }
 });
-
-
-
-/*Vue.component('weapon', {
-  template: '<li>This is a weapon</li>',
-  props: 
-});
-
-Vue.component ('armor', {
-  template: '<li>This is armor</li>'
-});
-
-Vue.component('item', {
-    template: '<li>THis is an item</li>'
-}); */

@@ -22,9 +22,20 @@ input:not([type=checkbox]) {
     margin: 0;
 }
 
+select {
+    height: 40px;
+    padding: 5px;
+    border: 1px solid rgba(84,75,49,.7);
+    font-family: Caudex,times,serif;
+    font-size: 20px;
+    text-align: center;
+    color: #222;
+    margin: 0;
+}
+
 input[readonly]
 {
-    background-color:#ddd;
+    background-color:#bbb;
     color: #303;
 }
 
@@ -87,7 +98,9 @@ article {
     width: 12em;
 }
 
-
+.abilityInput {
+    width: 5em;
+}
 
 .container {
     width: 100%;
@@ -112,6 +125,10 @@ article {
 .ability .primaryCheck {
     text-align: center;
     width: 60px;
+}
+
+.ability .primaryCheck label {
+    width: 100%;
 }
 
 .spell-table-row {

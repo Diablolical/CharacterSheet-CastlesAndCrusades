@@ -13,13 +13,14 @@
                     <div><label>Title</label><input type="text" name="title" class="mediumInput" v-model="character.general.title"></div>
                     <div><label>Race</label><input type="text" name="race" class="mediumInput" v-model="character.general.race"></div>
                     <div><label>Class</label>
-                        <select class="mediumInput" v-model="character.general.class">
-                            <option v-for="(value, key) in rules.classes">{{ key }} {{ value }}</option>
+                        <select class="mediumInput" v-model="character.general.class" v-on:change="">
+                            <option value="">Select class</option>
+                            <option v-for="className in classNames" :value="className">\{{ className }}</option>
                         </select>
                     </div>
                     <div><label>Alignment</label><input type="text" name="alignment" class="mediumInput" v-model="character.general.alignment"></div>
                     <div><label>Deity</label><input type="text" name="deity" class="mediumInput" v-model="character.general.diety"></div>
-                    <div><label>Level</label><input type="number" min="1" max="20" name="level" class="smallInput" v-model="character.general.level"></div>
+                    <div><label>Level</label><input type="number" min="1" max="20" name="level" class="smallInput" v-model="character.level.level"></div>
                 </section>
             </article>
             <article id="physical">
@@ -52,13 +53,13 @@
                             <label>Primary</label>
                         </div>
                         <div>
-                            <input type="text" name="str" class="smallInput" v-model="character.attributes.str.val">
+                            <input type="text" name="str" class="abilityInput" v-model="character.attributes.str.val">
                             <label>Ability Score</label>
                         </div>
                         <div>
                             <!--<ability ability="str"> -->
                                 <span>
-                                    <input type="text" name="str-modifier" class="smallInput" v-bind:value="strMod" readonly="readonly">
+                                    <input type="text" name="str-modifier" class="abilityInput" v-bind:value="strMod" readonly="readonly">
                                     <label>Ability Modifier</label>
                                 </span>
                             <!-- </ability> -->
@@ -73,12 +74,12 @@
                             <label>Primary</label>
                         </div>
                         <div>
-                            <input type="text" name="dex" class="smallInput" v-model="character.attributes.dex.val">
+                            <input type="text" name="dex" class="abilityInput" v-model="character.attributes.dex.val">
                             <label>Ability Score</label>
                         </div>
                         <div>
                             <span>
-                                <input type="text" name="dex-modifier" class="smallInput" v-bind:value="dexMod" readonly="readonly">
+                                <input type="text" name="dex-modifier" class="abilityInput" v-bind:value="dexMod" readonly="readonly">
                                 <label>Ability Modifier</label>
                             </span>
                         </div>
@@ -92,12 +93,12 @@
                             <label>Primary</label>
                         </div>
                         <div>
-                            <input type="text" name="con" class="smallInput" v-model="character.attributes.con.val">
+                            <input type="text" name="con" class="abilityInput" v-model="character.attributes.con.val">
                             <label>Ability Score</label>
                         </div>
                         <div>
                             <span>
-                                <input type="text" name="con-modifier" class="smallInput" v-bind:value="conMod" readonly="readonly">
+                                <input type="text" name="con-modifier" class="abilityInput" v-bind:value="conMod" readonly="readonly">
                                 <label>Ability Modifier</label>
                             </span>
                         </div>
@@ -111,12 +112,12 @@
                             <label>Primary</label>
                         </div>
                         <div>
-                            <input type="text" name="int" class="smallInput" v-model="character.attributes.int.val">
+                            <input type="text" name="int" class="abilityInput" v-model="character.attributes.int.val">
                             <label>Ability Score</label>
                         </div>
                         <div>
                             <span>
-                                <input type="text" name="int-modifier" class="smallInput" v-bind:value="intMod" readonly="readonly">
+                                <input type="text" name="int-modifier" class="abilityInput" v-bind:value="intMod" readonly="readonly">
                                 <label>Ability Modifier</label>
                             </span>
                         </div>
@@ -130,12 +131,12 @@
                             <label>Primary</label>
                         </div>
                         <div>
-                            <input type="text" name="wis" class="smallInput" v-model="character.attributes.wis.val">
+                            <input type="text" name="wis" class="abilityInput" v-model="character.attributes.wis.val">
                             <label>Ability Score</label>
                         </div>
                         <div>
                             <span>
-                                <input type="text" name="wis-modifier" class="smallInput" v-bind:value="wisMod" readonly="readonly">
+                                <input type="text" name="wis-modifier" class="abilityInput" v-bind:value="wisMod" readonly="readonly">
                                 <label>Ability Modifier</label>
                             </span>
                         </div>
@@ -149,12 +150,12 @@
                             <label>Primary</label>
                         </div>
                         <div>
-                            <input type="text" name="cha" class="smallInput" v-model="character.attributes.cha.val">
+                            <input type="text" name="cha" class="abilityInput" v-model="character.attributes.cha.val">
                             <label>Ability Score</label>
                         </div>
                         <div>
                             <span>
-                                <input type="text" name="cha-modifier" class="smallInput" v-bind:value="chaMod" readonly="readonly">
+                                <input type="text" name="cha-modifier" class="abilityInput" v-bind:value="chaMod" readonly="readonly">
                                 <label>Ability Modifier</label>
                             </span>
                         </div>
@@ -204,7 +205,7 @@
                     </div>
                     <div><label class="large">+</label></div>
                     <div>
-                        <input type="text" name="tohit-level-modifier" readonly="readonly" class="smallInput" v-bind:value="character.general.level">
+                        <input type="text" name="tohit-level-modifier" readonly="readonly" class="smallInput" v-bind:value="levelToHitMod">
                         <label>Level Bonus</label>
                     </div>
                     <div><label class="large">+</label></div>
