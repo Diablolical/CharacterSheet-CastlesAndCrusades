@@ -28,27 +28,33 @@
         "attributes": {
             "str": {
                 "val": 0,
-                "primary": false
+                "primary": false,
+                "disabled": false
             },
             "dex": {
                 "val": 0,
-                "primary": false
+                "primary": false,
+                "disabled": false
             },
             "con": {
                 "val": 0,
-                "primary": false
+                "primary": false,
+                "disabled": false
             },
             "int": {
                 "val": 0,
-                "primary": false
+                "primary": false,
+                "disabled": false
             },
             "wis": {
                 "val": 0,
-                "primary": false
+                "primary": false,
+                "disabled": false
             },
             "cha": {
                 "val": 0,
-                "primary": false
+                "primary": false,
+                "disabled": false
             }
         },
         "primaryAttributes": [],

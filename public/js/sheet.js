@@ -95,37 +95,36 @@ if (typeof character !== "object") {
         attributes: {
             str: {
                 val: 0,
-                primary: false
+                primary: false,
+                disabled: false
             },
             dex: {
                 val: 0,
-                primary: false
+                primary: false,
+                disabled: false
             },
             con: {
                 val: 0,
-                primary: false
+                primary: false,
+                disabled: false
             },
             int: {
                 val: 0,
-                primary: false
+                primary: false,
+                disabled: false
             },
             wis: {
                 val: 0,
-                primary: false
+                primary: false,
+                disabled: false
             },
             cha: {
                 val: 0,
-                primary: false
+                primary: false,
+                disabled: false
             }
         },
-        modifiers: {
-            strMod: "",
-            dexMod: "",
-            conMod: "",
-            intMod: "",
-            wisMod: "",
-            chaMod: ""
-        },
+        primaryAttributes: [],
         level: {
             level: 1,
             experience: 0
@@ -162,7 +161,8 @@ var app = new Vue({
     el: '#sheet',
     data: {
         character: character,
-        rules: rules
+        rules: rules,
+        classSelected: ""
     },
     computed: {
         strMod: function () {
@@ -224,6 +224,27 @@ var app = new Vue({
         },
         classNames: function() {
             return Object.keys(this.rules.classes);
+        },
+        races: function() {
+            return Object.keys(this.rules.races);
+        },
+        maxPrimary: function() {
+            if (this.general.race !== "") {
+                return this.rules.races[this.general.race].primaryAttributes;
+            }
+        },
+        primariesSelectable: function() {
+            if (this.character.primaryAttributes.length === this.maxPrimary) {
+                for(attr in this.character.attributes) {
+                    attr.disabled = true;
+                }
+                return;
+            }
+            for(attr in this.character.attributes) {
+                if (!attr.primary) {
+                    attr.disabled = false;
+                }
+            }
         }
     },
     methods: {
@@ -283,6 +304,25 @@ var app = new Vue({
                     newItem = {};
             }
             this[location][itemType].push(newItem);
+        },
+        updatePrimary: function() { 
+            var className = this.character.general.class;
+            var classPrimary = this.rules.classes[className].primary;
+            var oldClass = this.classSelected;
+            if( oldClass !== "") {
+                var oldPrimary = this.rules.classes[oldClass].primary;
+                if (oldPrimary !== classPrimary) {
+                    this.character.attributes[oldPrimary].primary = false;
+                    this.character.attributes[oldPrimary].disabled = false
+                    this.character.attributes[classPrimary].primary = true;
+                    this.character.attributes[classPrimary].disabled = true;
+                    this.classSelected = className;
+                }
+                return;
+            }
+            this.character.attributes[classPrimary].primary = true;
+            this.character.attributes[classPrimary].disabled = true;
+            this.classSelected = className;
         }
     }
 });

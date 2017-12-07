@@ -11,9 +11,14 @@
                 <section>
                     <div><label>Character Name</label><input type="text" name="characterName" class="bigInput" v-model="character.general.name"></div>
                     <div><label>Title</label><input type="text" name="title" class="mediumInput" v-model="character.general.title"></div>
-                    <div><label>Race</label><input type="text" name="race" class="mediumInput" v-model="character.general.race"></div>
+                    <div><label>Race</label>
+                        <select class="mediumInput" v-model="character.general.race">
+                            <option value="">Select race</option>
+                            <option v-for="race in races" :value="race">\{{ race }}</option>
+                        </select>
+                    </div>
                     <div><label>Class</label>
-                        <select class="mediumInput" v-model="character.general.class" v-on:change="">
+                        <select class="mediumInput" v-model="character.general.class" v-on:change="updatePrimary">
                             <option value="">Select class</option>
                             <option v-for="className in classNames" :value="className">\{{ className }}</option>
                         </select>
@@ -49,7 +54,7 @@
                             <label class="large">Strength</label>
                         </div>
                         <div class="primaryCheck">
-                            <input type="checkbox" name="strPrimary" class="checkboxInput" v-model="character.attributes.str.primary"/>
+                            <input type="checkbox" name="strPrimary" class="checkboxInput" v-model="character.attributes.str.primary" :disabled="character.attributes.str.disabled"/>
                             <label>Primary</label>
                         </div>
                         <div>
@@ -70,7 +75,7 @@
                             <label class="large">Dexterity</label>
                         </div>
                         <div class="primaryCheck">
-                            <input type="checkbox" name="dexPrimary" class="checkboxInput" v-model="character.attributes.dex.primary"/>
+                            <input type="checkbox" name="dexPrimary" class="checkboxInput" value="true" v-model="character.attributes.dex.primary" :disabled="character.attributes.dex.disabled"/>
                             <label>Primary</label>
                         </div>
                         <div>
@@ -89,7 +94,7 @@
                            <label class="large">Constitution</label>
                         </div>
                         <div class="primaryCheck">
-                            <input type="checkbox" name="conPrimary" class="checkboxInput" v-model="character.attributes.con.primary"/>
+                            <input type="checkbox" name="conPrimary" class="checkboxInput" v-model="character.attributes.con.primary" :disabled="character.attributes.con.disabled"/>
                             <label>Primary</label>
                         </div>
                         <div>
@@ -108,7 +113,7 @@
                             <label class="large">Intelligence</label>
                         </div>
                         <div class="primaryCheck">
-                            <input type="checkbox" name="intPrimary" class="checkboxInput" v-model="character.attributes.int.primary"/>
+                            <input type="checkbox" name="intPrimary" class="checkboxInput" v-model="character.attributes.int.primary" :disabled="character.attributes.int.disabled"/>
                             <label>Primary</label>
                         </div>
                         <div>
@@ -127,7 +132,7 @@
                             <label class="large">Wisdom</label>
                         </div>
                         <div class="primaryCheck">
-                            <input type="checkbox" name="wisPrimary" class="checkboxInput" v-model="character.attributes.wis.primary"/>
+                            <input type="checkbox" name="wisPrimary" class="checkboxInput" v-model="character.attributes.wis.primary" :disabled="character.attributes.wis.disabled"/>
                             <label>Primary</label>
                         </div>
                         <div>
@@ -146,7 +151,7 @@
                             <label class="large">Charisma</label>
                         </div>
                         <div class="primaryCheck">
-                            <input type="checkbox" name="chaPrimary" class="checkboxInput" v-model="character.attributes.cha.primary"/>
+                            <input type="checkbox" name="chaPrimary" class="checkboxInput" v-model="character.attributes.cha.primary" :disabled="character.attributes.cha.disabled"/>
                             <label>Primary</label>
                         </div>
                         <div>
