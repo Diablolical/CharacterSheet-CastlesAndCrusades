@@ -388,5 +388,11 @@ var rules = {
 
             }
         }
+    },
+    itemTypes: {
+        weapon: {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false},
+        shield: {type: "", weight: 0, acBonus: 0},
+        armor: {type: "", weight: 0, acBonus: 0},
+        magicalItem: {}
     }
 };
