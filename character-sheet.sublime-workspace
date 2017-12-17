@@ -4,12 +4,45 @@
 		"selected_items":
 		[
 			[
+<<<<<<< HEAD
 				"text-a",
 				"text-align"
 			],
 			[
 				"pr",
 				"primary"
+=======
+				"prima",
+				"primaryAttributes"
+			],
+			[
+				"prim",
+				"primaryAttributes"
+			],
+			[
+				"attr",
+				"attributes"
+			],
+			[
+				"prm",
+				"primaryAttributes"
+			],
+			[
+				"cha",
+				"character"
+			],
+			[
+				"abiliti",
+				"ability-modifier"
+			],
+			[
+				"misc",
+				"miscToHit"
+			],
+			[
+				"int",
+				"int"
+>>>>>>> origin/master
 			],
 			[
 				"timebk",
@@ -490,6 +523,7 @@
 			[
 				"fu",
 				"fullChart"
+<<<<<<< HEAD
 			],
 			[
 				"loadForm",
@@ -514,34 +548,37 @@
 			[
 				"widgetChart",
 				"widgetChartIndex"
+=======
+>>>>>>> origin/master
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": ".gitignore",
+			"file": "public/js/rulesConf.js",
 			"settings":
 			{
-				"buffer_size": 67,
+				"buffer_size": 8868,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "index.js",
-			"settings":
-			{
-				"buffer_size": 2388,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
+<<<<<<< HEAD
 			"file": "views/castlesandcrusades.handlebars",
 			"settings":
 			{
 				"buffer_size": 19389,
+=======
+			"contents": "\"use strict\";\n\n/*var character =  {\n    general: {\n        name: \"\",\n        title: \"\",\n        race: \"\",\n        class: \"\",\n        alignment: \"\",\n        deity: \"\",\n        level: 0\n    },\n    physical: {\n        age: \"\",\n        gender: \"\",\n        hair: \"\",\n        eyes: \"\",\n        height: \"\",\n        weight: \"\",\n        clothing: \"\",\n        other: \"\"\n    },\n    characterization: {\n        languages: \"\",\n        description: \"\",\n        personality: \"\",\n        background: \"\"\n    },\n    attributes: {\n        str: 0,\n        dex: 0,\n        con: 0,\n        int: 0,\n        wis: 0,\n        cha: 0\n    },\n    modifiers: {\n        strMod: \"\",\n        dexMod: \"\",\n        conMod: \"\",\n        intMod: \"\",\n        wisMod: \"\",\n        chaMod: \"\"\n    },\n    level: {\n        level: 0,\n        experience: 0\n    },\n    defense: {\n        armorAC: \"\",\n        shieldAC: \"\",\n        miscAC: \"\",\n        HP: \"\"\n    },\n    offense: {\n        miscToHit: \"\"\n    },\n    abilities: [],\n    weapons: [\n        {type: \"\", bonusToHit: 0, bonusDamage: 0, damage: 0, special: \"\"}\n    ],\n    armor: [\n        {type: \"\", ac: 0}\n    ]\n};*/\n/*Vue.component('ability-modifier', {\n    template : '<span><input type=\"text\" name=\"con-modifier\" v-bind:value=\"conMod\" readonly=\"readonly\"><label>Ability Modifier</label></span>',\n}); */\nif (typeof character !== \"object\") {\n    var character = {\n        general: {\n            name: \"\",\n            title: \"\",\n            race: \"\",\n            class: \"\",\n            alignment: \"\",\n            deity: \"\"\n        },\n        physical: {\n            age: \"\",\n            gender: \"\",\n            hair: \"\",\n            eyes: \"\",\n            height: \"\",\n            weight: \"\",\n            clothing: \"\",\n            other: \"\"\n        },\n        characterization: {\n            languages: \"\",\n            description: \"\",\n            personality: \"\",\n            background: \"\"\n        },\n        attributes: {\n            str: {\n                val: 0,\n                primary: false,\n                disabled: true\n            },\n            dex: {\n                val: 0,\n                primary: false,\n                disabled: true\n            },\n            con: {\n                val: 0,\n                primary: false,\n                disabled: true\n            },\n            int: {\n                val: 0,\n                primary: false,\n                disabled: true\n            },\n            wis: {\n                val: 0,\n                primary: false,\n                disabled: true\n            },\n            cha: {\n                val: 0,\n                primary: false,\n                disabled: true\n            }\n        },\n        level: {\n            level: 1,\n            experience: 0\n        },\n        defense: {\n            armorAC: \"\",\n            shieldAC: \"\",\n            miscAC: \"\",\n            HP: \"\"\n        },\n        offense: {\n            miscToHit: \"\"\n        },\n        abilities: [],\n        equipment: {\n            weapon: [{type: \"\", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: \"\", twoHanded: false}],\n            shield: [{type: \"\", weight: 0, acBonus: 0}],\n            armor: [{type: \"\", weight: 0, acBonus: 0}],\n            cloak: [{type: \"\", weight: 0, acBonus: 0, saveBonus: 0, other: \"\"}],\n            amulet: [{type: \"\", weight: 0, acBonus: 0, saveBonus: 0, other: \"\"}],\n            ring: [{type: \"\", weight: 0, acBonus: 0, saveBonus: 0, other: \"\"}],\n            boots: [{type: \"\", weight: 0, other: \"\"}]\n        },\n        packItems: {\n            weapons: [],\n            armor: [],\n            magicalItems: [],\n            other: []\n        }\n    };\n}\n\nvar app = new Vue({\n    el: '#sheet',\n    data: {\n        character: character,\n        rules: rules,\n        classPrimary: \"\",\n        primaryAttributes: []\n    },\n    computed: {\n        strMod: function () {\n            var val = parseInt(this.character.attributes.str.val);\n            return this.updateModifier(val);\n        },\n        dexMod: function () {\n            var val = parseInt(this.character.attributes.dex.val);\n            return this.updateModifier(val);\n        },\n        conMod: function () {\n            var val = parseInt(this.character.attributes.con.val);\n            return this.updateModifier(val);\n        },\n        intMod: function() {\n            var val = parseInt(this.character.attributes.int.val);\n            return this.updateModifier(val);\n        },\n        wisMod: function () {\n            var val = parseInt(this.character.attributes.wis.val);\n            return this.updateModifier(val);\n        },\n        chaMod: function () {\n            var val = parseInt(this.character.attributes.cha.val);\n            return this.updateModifier(val);\n        },\n        armorClass: function() {\n            var ac = 10 + parseInt(this.dexMod);\n            if (this.character.defense.armorAC !== \"\") {\n                ac += parseInt(this.character.defense.armorAC);\n            }\n            if (this.character.defense.shieldAC !== \"\") {\n                ac += parseInt(this.character.defense.shieldAC);\n            }\n            if (this.character.defense.miscAC !== \"\") {\n                ac += parseInt(this.character.defense.miscAC);\n            }\n            if (this.character.equipment.armor.acBonus !== 0) {\n                ac += parseInt(this.character.equipment.armor[0].acBonus);\n            }\n            console.log(ac);\n            return ac;\n        },\n        levelToHitMod: function() {\n            if (this.character.general.class !== \"\") {\n                var className = this.character.general.class;\n                var classToHit = this.rules.classes[className].BtH[this.character.level.level];\n                console.log(classToHit);\n                return classToHit;\n            }\n        },\n        toHit: function() {\n            var toHit =  20 + parseInt(this.dexMod);\n            console.log(toHit);\n            if (this.character.offense.miscToHit !== \"\") {\n                toHit += parseInt(this.character.offense.miscToHit);\n            }\n            return toHit;\n        },\n        classNames: function() {\n            return Object.keys(this.rules.classes);\n        },\n        races: function() {\n            return Object.keys(this.rules.races);\n        },\n        maxPrimaries: function() {\n            if (this.character.general.race !== \"\") {\n                var maxPrimaries = this.rules.races[this.character.general.race].primaryAttributes;\n                if (this.primaryAttributes.length > maxPrimaries) {\n                    this.primaryAttributes = [];\n                    if (this.classPrimary !== \"\") {\n                        this.primaryAttributes.push(this.classPrimaries);\n                    }\n                }\n                return maxPrimaries;\n            }\n            return 1;\n        }\n    },\n    watch: {\n        primaryAttributes: function() {\n            var maxed = this.primaryAttributes.length < this.maxPrimaries ? false : true;\n            for(const atr in this.character.attributes) {\n                if (this.primaryAttributes.indexOf(attr) !== -1) {\n                    this.character.attributes[attr].primary = true;\n                    if (this.classPrimary === attr) {\n                        this.character.attributes[attr].disabled = true;\n                    }\n                    continue;\n                }\n                if (maxed) {\n                    this.character.attributes[attr].disabled = true;\n                    continue;\n                }\n                this.character.attributes[attr].disabled = false;\n            }\n            return;\n        }\n    },\n    methods: {\n        updateModifier: function (val) {\n            if (typeof this.rules === \"undefined\" || !this.rules.hasOwnProperty('modifierLevels')) {\n                alert(\"Unable to load rules!\");\n                return;\n            }\n            if (val <= 0) {\n                return 0;\n            }\n            if (val >= 20) {\n                return 3;\n            }\n            var levels = this.rules.modifierLevels;\n            var modifier = 0;\n            Object.keys(levels).some(function (score){\n                if (val >= levels[score].min && val <= levels[score].max){\n                    modifier = score;\n                }\n            });\n            console.log(modifier);\n            return modifier;\n        },\n        save: function() {\n            \"use strict\";\n            var data = JSON.stringify(character);\n            console.log(data);\n            $.when(\n                $.ajax({\n                    method: 'POST',\n                    url: '/',\n                    data: data,\n                    contentType: \"application/json\"\n                })\n            ).done(function (data) {\n                console.log(\"Post success with data:\", data);\n                return true;\n            }).fail(function (data) {\n                console.log(\"Post failed with data: \", data);\n                return false;\n            });\n        },\n        addItem: function (location, itemType) {\n            \"use strict\";\n            var newItem = {};\n            switch (itemType) {\n            case \"weapon\":\n                newItem = {type: \"\", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: \"\", twoHanded: false};\n            break;\n            case \"shield\":\n                newItem = {type: \"\", weight: 0, acBonus: 0};\n            break;\n            case \"armor\":\n                newItem = {type: \"\", weight: 0, acBonus: 0};\n            break;\n            case \"magicalItem\":\n                newItem = {};\n            break;\n            default:\n                newItem = {};\n            }\n            this[location][itemType].push(newItem);\n        },\n        addAbility: function () {\n            \"use strict\";\n            var ability = {name: \"\", description: \"\"};\n            this.character.abilities.push(ability);\n        },\n        updateClassPrimary: function () {\n            \"use strict\";\n            var className = this.character.general.class;\n            var oldPrimary = this.classPrimary;\n            if (!className) {\n                var i = this.primaryAttributes.indexOf(oldPrimary);\n                this.primaryAttributes.splice(i, 1);\n                this.classPrimary = \"\";\n                return;\n            }\n            var classPrimary = this.rules.classes[className].primary;\n            if (oldPrimary !== \"\") { \n                if (oldPrimary !== classPrimary) {\n                    var i = this.primaryAttributes.indexOf(oldPrimary);\n                    this.primaryAttributes.splice(i, 1);\n                    if (this.primaryAttributes.indexOf(classPrimary) === -1) {\n                        this.primaryAttributes.push(classPrimary);\n                    }\n                }\n            } else if (this.primaryAttributes.indexOf(classPrimary) === -1) {\n                this.primaryAttributes.push(classPrimary);\n            }\n            this.classPrimary = classPrimary;\n        }\n    }\n});",
+			"file": "public/js/sheet.js",
+			"file_size": 11359,
+			"file_write_time": 131576698642134637,
+			"settings":
+			{
+				"buffer_size": 11004,
+>>>>>>> origin/master
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,12 +587,17 @@
 			"file": "config/conf.json",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 2302,
+=======
+				"buffer_size": 2772,
+>>>>>>> origin/master
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
+<<<<<<< HEAD
 			"file": "views/layouts/main.handlebars",
 			"settings":
 			{
@@ -568,11 +610,18 @@
 			"settings":
 			{
 				"buffer_size": 2261,
+=======
+			"file": "public/css/sheet.css",
+			"settings":
+			{
+				"buffer_size": 2548,
+>>>>>>> origin/master
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
+<<<<<<< HEAD
 			"file": "public/js/sheet.js",
 			"settings":
 			{
@@ -583,18 +632,16 @@
 		},
 		{
 			"file": "tmp/test",
+=======
+			"contents": " <div id=\"wrapper\">\n    <header>\n        <div class=\"logo\">\n            <img id=\"header\" src=\"images/Logo.jpg\">\n        </div>\n    </header>\n    <div class=\"container\">\n        <form name=\"character-sheet\" id=\"sheet\">\n            <article id=\"general\">\n                <h1>General</h1>\n                <section>\n                    <div><label>Character Name</label><input type=\"text\" name=\"characterName\" class=\"bigInput\" v-model=\"character.general.name\"></div>\n                    <div><label>Title</label><input type=\"text\" name=\"title\" class=\"mediumInput\" v-model=\"character.general.title\"></div>\n                    <div><label>Race</label>\n                        <select class=\"mediumInput\" v-model=\"character.general.race\">\n                            <option value=\"\">Select race</option>\n                            <option v-for=\"race in races\" :value=\"race\">\\{{ race }}</option>\n                        </select>\n                    </div>\n                    <div><label>Class</label>\n                        <select class=\"mediumInput\" v-model=\"character.general.class\" v-on:change=\"updatePrimary\">\n                            <option value=\"\">Select class</option>\n                            <option v-for=\"className in classNames\" :value=\"className\">\\{{ className }}</option>    \n                        </select>\n                    </div>\n                    <div><label>Alignment</label><input type=\"text\" name=\"alignment\" class=\"mediumInput\" v-model=\"character.general.alignment\"></div>\n                    <div><label>Deity</label><input type=\"text\" name=\"deity\" class=\"mediumInput\" v-model=\"character.general.diety\"></div>\n                    <div><label>Level</label><input type=\"number\" min=\"1\" max=\"20\" name=\"level\" class=\"smallInput\" v-model=\"character.level.level\"></div>\n                </section>\n            </article>\n            <article id=\"physical\">\n                <h1>Physical Characteristics</h1>\n                <div><label>Age</label><input type=\"text\" name=\"age\" class=\"smallInput\" v-model=\"character.physical.age\"></div>\n                <div><label>Gender</label><input type=\"text\" name=\"gender\" class=\"smallInput\" v-model=\"character.physical.gender\"></div>\n                <div><label>Hair Color</label><input type=\"text\" name=\"hair\" class=\"smallInput\" v-model=\"character.physical.hair\"></div>\n                <div><label>Eye Color</label><input type=\"text\" name=\"eyes\" class=\"smallInput\" v-model=\"character.physical.eyes\"></div>\n                <div><label>Height</label><input type=\"text\" name=\"height\" class=\"smallInput\" v-model=\"character.physical.height\"></div>\n                <div><label>Weight</label><input type=\"text\" name=\"weight\" class=\"smallInput\" v-model=\"character.physical.weight\"></div>\n                <div><label>Scars or other distinguishing traits</label><input  class=\"bigInput\" rows=\"3\" name=\"physical-traits\" v-model=\"character.physical.other\"></div>\n                <div><label>Clothing Style</label><input  class=\"bigInput\" name=\"clothing\" v-model=\"character.physical.clothing\"></div>\n            </article>\n            <article id=\"character\">\n                <h1>Additional Information</h1>\n                <div><label>Languages Known</label><textarea name=\"languages\" v-model=\"character.characterization.languages\"></textarea></div>\n                <div><label>Description</label><textarea name=\"description\" v-model=\"character.characterization.description\"></textarea></div>\n                <div><label>Personality</label><textarea name=\"personality\" v-model=\"character.characterization.personality\"></textarea></div>\n                <div><label>Background</label><textarea  name=\"background\" v-model=\"character.characterization.background\"></textarea></div>\n            </article>\n            <article id=\"attributes\">\n                <h1>Attributes</h1>\n                <section>\n                    <div class=\"ability\">\n                        <div>\n                            <label class=\"large\">Strength</label>\n                        </div>\n                        <div class=\"primaryCheck\">\n                            <input type=\"checkbox\" name=\"strPrimary\" class=\"checkboxInput\" value=\"str\" v-model=\"primaryAttributes\" :disabled=\"character.attributes.str.disabled\"/>\n                            <label>Primary</label>\n                        </div>\n                        <div>\n                            <input type=\"text\" name=\"str\" class=\"abilityInput\" v-model=\"character.attributes.str.val\">\n                            <label>Ability Score</label>\n                        </div>\n                        <div>\n                            <!--<ability ability=\"str\"> -->\n                                <span>\n                                    <input type=\"text\" name=\"str-modifier\" class=\"abilityInput\" v-bind:value=\"strMod\" readonly=\"readonly\">\n                                    <label>Ability Modifier</label>\n                                </span>\n                            <!-- </ability> -->\n                        </div>\n                    </div>\n                    <div class=\"ability\">\n                        <div>\n                            <label class=\"large\">Dexterity</label>\n                        </div>\n                        <div class=\"primaryCheck\">\n                            <input type=\"checkbox\" name=\"dexPrimary\" class=\"checkboxInput\" value=\"dex\" v-model=\"primaryAttributes\" :disabled=\"character.attributes.dex.disabled\"/>\n                            <label>Primary</label>\n                        </div>\n                        <div>\n                            <input type=\"text\" name=\"dex\" class=\"abilityInput\" v-model=\"character.attributes.dex.val\">\n                            <label>Ability Score</label>\n                        </div>\n                        <div>\n                            <span>\n                                <input type=\"text\" name=\"dex-modifier\" class=\"abilityInput\" v-bind:value=\"dexMod\" readonly=\"readonly\">\n                                <label>Ability Modifier</label>\n                            </span>\n                        </div>\n                    </div>\n                    <div class=\"ability\"> \n                        <div>\n                           <label class=\"large\">Constitution</label>\n                        </div>\n                        <div class=\"primaryCheck\">\n                            <input type=\"checkbox\" name=\"conPrimary\" class=\"checkboxInput\" value=\"con\" v-model=\"primaryAttributes\" :disabled=\"character.attributes.con.disabled\"/>\n                            <label>Primary</label>\n                        </div>\n                        <div>\n                            <input type=\"text\" name=\"con\" class=\"abilityInput\" v-model=\"character.attributes.con.val\">\n                            <label>Ability Score</label>\n                        </div>\n                        <div>\n                            <span>\n                                <input type=\"text\" name=\"con-modifier\" class=\"abilityInput\" v-bind:value=\"conMod\" readonly=\"readonly\">\n                                <label>Ability Modifier</label>\n                            </span>\n                        </div>\n                    </div>\n                    <div class=\"ability\">\n                        <div>\n                            <label class=\"large\">Intelligence</label>\n                        </div>\n                        <div class=\"primaryCheck\">\n                            <input type=\"checkbox\" name=\"intPrimary\" class=\"checkboxInput\" value=\"int\" v-model=\"primaryAttributes\" :disabled=\"character.attributes.int.disabled\"/>\n                            <label>Primary</label>\n                        </div>\n                        <div>\n                            <input type=\"text\" name=\"int\" class=\"abilityInput\" v-model=\"character.attributes.int.val\">\n                            <label>Ability Score</label>\n                        </div>\n                        <div>\n                            <span>\n                                <input type=\"text\" name=\"int-modifier\" class=\"abilityInput\" v-bind:value=\"intMod\" readonly=\"readonly\">\n                                <label>Ability Modifier</label>\n                            </span>\n                        </div>\n                    </div>\n                    <div class=\"ability\">\n                        <div>\n                            <label class=\"large\">Wisdom</label>\n                        </div>\n                        <div class=\"primaryCheck\">\n                            <input type=\"checkbox\" name=\"wisPrimary\" class=\"checkboxInput\" value=\"wis\" v-model=\"primaryAttributes\" :disabled=\"character.attributes.wis.disabled\"/>\n                            <label>Primary</label>\n                        </div>\n                        <div>\n                            <input type=\"text\" name=\"wis\" class=\"abilityInput\" v-model=\"character.attributes.wis.val\">\n                            <label>Ability Score</label>\n                        </div>\n                        <div>\n                            <span>\n                                <input type=\"text\" name=\"wis-modifier\" class=\"abilityInput\" v-bind:value=\"wisMod\" readonly=\"readonly\">\n                                <label>Ability Modifier</label>\n                            </span>\n                        </div>\n                    </div>\n                    <div class=\"ability\">\n                        <div>\n                            <label class=\"large\">Charisma</label>\n                        </div>\n                        <div class=\"primaryCheck\">\n                            <input type=\"checkbox\" name=\"chaPrimary\" class=\"checkboxInput\" value=\"cha\" v-model=\"primaryAttributes\" :disabled=\"character.attributes.cha.disabled\"/>\n                            <label>Primary</label>\n                        </div>\n                        <div>\n                            <input type=\"text\" name=\"cha\" class=\"abilityInput\" v-model=\"character.attributes.cha.val\">\n                            <label>Ability Score</label>\n                        </div>\n                        <div>\n                            <span>\n                                <input type=\"text\" name=\"cha-modifier\" class=\"abilityInput\" v-bind:value=\"chaMod\" readonly=\"readonly\">\n                                <label>Ability Modifier</label>\n                            </span>\n                        </div>\n                    </div>\n                </section>\n            </article>\n            <article id=\"combat\">\n                <h1>Defense</h1>\n                <section>\n                    <div><label class=\"large\">Armor Class</label></div>\n                    <div><input type=\"text\" name=\"ac\" readonly=\"readonly\" class=\"smallInput\" v-bind:value=\"armorClass\"><label>Total</label></div>\n                    <div><label class=\"large\">10+</label></div>\n                    <div>\n                        <input type=\"text\" name=\"ac-armor-bonus\" class=\"smallInput\" v-model=\"character.defense.armorAC\">\n                        <label>Armor</label>\n                    </div>\n                    <div>\n                        <input type=\"text\" name=\"ac-shield-bonus\" class=\"smallInput\" v-model=\"character.defense.shieldAC\">\n                        <label>Shield</label>\n                    </div>\n                    <div>\n                        <input type=\"text\" name=\"dex-modifier\" readonly=\"readonly\" class=\"smallInput\" v-bind:value=\"dexMod\"><label>Attribute Modifier</label>\n                    </div>\n                    <div>\n                        <input type=\"text\" name=\"ac-misc-modifier\" class=\"smallInput\" v-model=\"character.defense.miscAC\">\n                        <label>Misc Modifier</label>\n                    </div>\n                    <div><label class=\"large\">Hit Points</label></div>\n                    <div>\n                        <input type=\"text\" name=\"hp-total\" v-model=\"character.defense.HP\">\n                        <label>Total</label>\n                    </div>\n                    <div class=\"w180\">\n                        <input type=\"text\" name=\"hp-wounds\">\n                        <label>Wounds Suffered</label>\n                    </div>\n                </section>\n            </article>\n            <article id=\"offense\">\n                <h1>Offense</h1>\n                <section>\n                   <div><label class=\"large\">To Hit</label></div>\n                    <div><input type=\"text\" name=\"to-hit\"  readonly=\"readonly\" class=\"smallInput\" v-bind:value=\"toHit\"><label>Total =</label></div>\n                    <div><label class=\"large\">20+</label></div>\n                    <div>\n                        <input type=\"text\" name=\"dex-modifier\" readonly=\"readonly\" class=\"smallInput\" v-bind:value=\"dexMod\"><label> Attribute Modifier</label>\n                    </div>\n                    <div><label class=\"large\">+</label></div>\n                    <div>\n                        <input type=\"text\" name=\"tohit-level-modifier\" readonly=\"readonly\" class=\"smallInput\" v-bind:value=\"levelToHitMod\">\n                        <label>Level Bonus</label>\n                    </div>\n                    <div><label class=\"large\">+</label></div>\n                    <div>\n                        <input type=\"text\" name=\"tohit-misc-modifier\" class=\"smallInput\" v-model=\"character.offense.miscToHit\">\n                        <label>Misc Modifier</label>\n                    </div>\n                </section>\n            </article>\n            <article id=\"experience\" class=\"experience\">\n                <h1>Experience</h1>\n                    <div><label class=\"large\">Experience Points</label></div>\n                    <div>\n                        <input type=\"text\" name=\"xp-total\" v-model=\"character.level.experience\">\n                        <label>Total</label>\n                    </div>\n                    <div>\n                        <input type=\"text\" name=\"xp-to-next-level\">\n                        <label>Next Level</label>\n                    </div>\n                </section>\n            </article>\n            <article id=\"abilities\">\n                <h1>Abilities &amp; Advantages</h1>\n                <section>\n                    <div><span>Racial Abilities</span></div>\n                    <div>\n                        <div><a v-on:click+</div>\n                    </div>\n\n                    <div><span>Class Abilities</span></div>\n                    <div>\n                        <div>+</div>\n                    </div>\n                </section>\n            </article>\n            <article id=\"equipment\">\n                <h1>Weapons</h1>\n                    <section></section>\n            </article>\n            <article id=\"spells\">\n                <h1>Spell List</h1>\n                <section>\n                    <div class=\"spell-table-row\" id=\"spell-table-header\">\n                        <div><label class=\"large\">Spell Level</label></div>\n                        <div class=\"header-label\"><label>Spells Known</label></div>\n                        <div class=\"header-label\"><label>Spells per Day</label></div>\n                        <div class=\"header-label\"><label>Bonus Spells</label></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">0th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-0\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-0\"></div>\n                        <div class=\"placeholder\"><label>—</label></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">1st</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-1\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-1\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-1\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">2nd</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-2\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-2\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-2\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">3rd</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-3\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-3\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-3\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">4th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-4\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-4\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-4\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">5th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-5\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-5\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-5\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">6th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-6\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-6\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-6\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">7th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-7\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-7\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-7\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">8th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-8\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-8\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-8\"></div>\n                    </div>\n                    <div class=\"spell-table-row\">\n                        <div><label class=\"large\">9th</label></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-known-9\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"spells-perday-9\"></div>\n                        <div><input type=\"text\" class=\"mediumInput\" name=\"bonus-spells-9\"></div>\n                    </div>  \n                </section>\n            </article>\n            <div class=\"footer\">\n                <button id=\"save\" v-on:click=\"save\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>\n<footer>\n</footer>\n<script type=\"text/javascript\">\n    var character = {{{data}}};\n\n    console.log(character);\n</script>\n<script type=\"text/javascript\" src=\"js/rulesConf.js\"></script>\n<script type=\"text/javascript\" src=\"js/sheet.js\"></script>",
+			"file": "views/castlesandcrusades.handlebars",
+			"file_size": 20322,
+			"file_write_time": 131571928054721091,
+>>>>>>> origin/master
 			"settings":
 			{
-				"buffer_size": 595,
+				"buffer_size": 19995,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 894,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -605,21 +652,25 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 490.0,
-		"last_filter": "",
+		"height": 368.0,
+		"last_filter": "git add",
 		"selected_items":
 		[
-			[
-				"git commit",
-				"Git: Commit"
-			],
 			[
 				"git add",
 				"Git: Add All"
 			],
 			[
-				"git",
-				"Git: Init"
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"git merge",
+				"Git: Merge Branch"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"push",
@@ -678,6 +729,10 @@
 				"Git: Commit"
 			],
 			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
 				"git ignore",
 				"Git: Update Project Ignored Files"
 			],
@@ -688,6 +743,10 @@
 			[
 				"revert",
 				"File: Revert"
+			],
+			[
+				"git",
+				"Git: Commit"
 			],
 			[
 				"commit ",
@@ -742,10 +801,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"packa",
-				"Package Control: Install Package"
-			],
-			[
 				"sublimeLinter",
 				"SublimeLinter: Show All Errors"
 			],
@@ -760,10 +815,6 @@
 			[
 				"phpfmt",
 				"phpfmt: build autocomplete database"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"Snippet: ",
@@ -818,7 +869,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 587.0
+		"width": 444.0
 	},
 	"console":
 	{
@@ -843,13 +894,17 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/AWilson/Documents/NodeServer/characterSheet",
-		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public",
-		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public/images",
-		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public/js"
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/config",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/public",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/public/css",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/public/js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/views",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/views/layouts"
 	],
 	"file_history":
 	[
+<<<<<<< HEAD
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public/js/rulesConf.js",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/tmp/Dailuaine",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/views/layouts/main.handlebars",
@@ -863,6 +918,28 @@
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/.gitignore.gitignore",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/.git/info/exclude",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/test.html",
+=======
+		"/C/Users/Austin/AppData/Roaming/Sublime Text 3/Packages/User/JSLint.sublime-settings",
+		"/C/Users/Austin/AppData/Roaming/Sublime Text 3/Packages/JSLint/JSLint.sublime-settings",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/config/conf.json",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/views/castlesandcrusades.handlebars",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/views/sheet.html",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/public/css/sheet.css",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/index.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/package.json",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/.gitignore",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/.gitignore.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/.git/info/exclude",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/.git/packed-refs",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/.git/config",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/node_modules/vue/dist/vue.esm.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/node_modules/vue/dist/vue.runtime.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/sheet.html",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/rulesConfig/conf.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/js/app.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/public/app.js",
+		"/C/Users/Austin/Documents/Code Files/CharacterSheet/CharacterSheet-CastlesAndCrusades/test.html",
+>>>>>>> origin/master
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/platform/public/css/plexus_intl/styles.css",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Participant.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Person.php",
@@ -970,6 +1047,7 @@
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/admin/application/views/scripts/results/response-stats.phtml",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Report_Scoring.php",
 		"/C/Users/AWilson/Documents/Platform/branches/release/include/models/admin/Report_Scoring.php",
+<<<<<<< HEAD
 		"/C/Users/AWilson/Documents/Platform/trunk/include/classes/module_publish/ResultAnalyzer.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/platform/application/layouts/plexus_intl.phtml",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Scheduled_Event_Timeblock.php",
@@ -978,10 +1056,13 @@
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/controllers/ManageController.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Purchase_Invoice.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/controllers/CheckoutController.php"
+=======
+		"/C/Users/AWilson/Documents/Platform/trunk/include/classes/module_publish/ResultAnalyzer.php"
+>>>>>>> origin/master
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -1052,6 +1133,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+<<<<<<< HEAD
 			"character.attributes.",
 			"Mod",
 			"0",
@@ -1081,29 +1163,50 @@
 			"<input type=\"text\"",
 			"</div>",
 			"<label>",
+=======
+			"disabled:",
+			"max",
+			"min",
+>>>>>>> origin/master
 			"'",
+			"{\n",
+			"level",
+			"attributes",
+			"]",
+			"[",
+			"\"",
+			" {",
+			"{\n",
+			"smallInput",
 			":",
-			"body",
-			"form",
-			"ng-model=",
-			"ng-model",
-			"ng-model=\"character.spells[0].totalPerDay\" class=\"ng-pristine ng-valid\"",
-			" g-valid\"",
-			"ng-model",
-			"class=\"w80\"",
-			"class=",
-			"Clothing",
-			"int",
+			" :",
+			":",
+			"ability-modifier",
+			"modifiers.",
+			"v-bind:value=",
+			"<ability-modifier ",
+			"</ability-modifier>",
+			"modifiers.",
+			"{",
+			"}",
+			"\"\",",
+			"ability-modifier",
+			",",
+			":",
+			"value=\"\"",
+			"general",
+			"e=\"",
+			"\"></div>",
+			"\"",
+			"<div><label",
 			"con",
-			"dex",
-			"Dex",
-			"dex",
-			"class=\"w100\"",
-			"ng-model=",
-			" class=",
-			"class=",
-			"ng-model=",
-			"class=",
+			",",
+			":",
+			"ng",
+			"\"></div>",
+			"<input type=\"text\" name=\"",
+			"</label>",
+			"<div><label>",
 			"addC",
 			"taskAssignmentArray",
 			"$currentEO",
@@ -1179,7 +1282,21 @@
 			"timeblockID",
 			"listCompleteEnrollments",
 			"timeblockObject",
+<<<<<<< HEAD
 			"block"
+=======
+			"block",
+			"var ",
+			"totalTime",
+			"fullDayEvent",
+			"id",
+			" id",
+			"id",
+			"fullDayEvent",
+			"totalTime",
+			"titakTune",
+			"$a"
+>>>>>>> origin/master
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1206,6 +1323,7 @@
 			[
 				{
 					"buffer": 0,
+<<<<<<< HEAD
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
@@ -1235,23 +1353,32 @@
 				{
 					"buffer": 1,
 					"file": "index.js",
+=======
+					"file": "public/js/rulesConf.js",
+>>>>>>> origin/master
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2388,
+						"buffer_size": 8868,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								792,
 								792
+=======
+								8337,
+								8337
+>>>>>>> origin/master
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+<<<<<<< HEAD
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -1268,23 +1395,46 @@
 					"settings":
 					{
 						"buffer_size": 19389,
+=======
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4815.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/js/sheet.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11004,
+>>>>>>> origin/master
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								4176,
 								4176
+=======
+								9604,
+								9604
+>>>>>>> origin/master
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
@@ -1293,34 +1443,59 @@
 				},
 				{
 					"buffer": 3,
+=======
+						"translation.y": 5186.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+>>>>>>> origin/master
 					"file": "config/conf.json",
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 2302,
+=======
+						"buffer_size": 2772,
+>>>>>>> origin/master
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								701,
 								701
+=======
+								374,
+								374
+>>>>>>> origin/master
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 394.0,
+=======
+						"translation.y": 467.0,
+>>>>>>> origin/master
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
+<<<<<<< HEAD
 					"buffer": 4,
 					"file": "views/layouts/main.handlebars",
 					"semi_transient": false,
@@ -1352,19 +1527,31 @@
 				},
 				{
 					"buffer": 5,
+=======
+					"buffer": 3,
+>>>>>>> origin/master
 					"file": "public/css/sheet.css",
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 2261,
+=======
+						"buffer_size": 2548,
+>>>>>>> origin/master
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								1633,
 								1633
+=======
+								611,
+								610
+>>>>>>> origin/master
 							]
 						],
 						"settings":
@@ -1374,6 +1561,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 1746.0,
 						"zoom_level": 1.0
 					},
@@ -1413,27 +1601,39 @@
 				{
 					"buffer": 7,
 					"file": "tmp/test",
+=======
+						"translation.y": 1530.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/castlesandcrusades.handlebars",
+>>>>>>> origin/master
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 595,
+						"buffer_size": 19995,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								593,
-								593
+								1209,
+								1296
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 55.0,
 						"zoom_level": 1.0
 					},
@@ -1468,6 +1668,12 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
+=======
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+>>>>>>> origin/master
 					"type": "text"
 				}
 			]
@@ -1475,7 +1681,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1504,6 +1710,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 103.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -1516,7 +1726,7 @@
 	"project": "character-sheet.sublime-project",
 	"replace":
 	{
-		"height": 53.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

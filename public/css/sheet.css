@@ -22,9 +22,20 @@ input:not([type=checkbox]) {
     margin: 0;
 }
 
+select {
+    height: 40px;
+    padding: 5px;
+    border: 1px solid rgba(84,75,49,.7);
+    font-family: Caudex,times,serif;
+    font-size: 20px;
+    text-align: center;
+    color: #222;
+    margin: 0;
+}
+
 input[readonly]
 {
-    background-color:#ddd;
+    background-color:#bbb;
     color: #303;
 }
 
@@ -87,7 +98,9 @@ article {
     width: 12em;
 }
 
-
+.abilityInput {
+    width: 5em;
+}
 
 .container {
     width: 100%;
@@ -112,6 +125,10 @@ article {
 .ability .primaryCheck {
     text-align: center;
     width: 60px;
+}
+
+.ability .primaryCheck label {
+    width: 100%;
 }
 
 .spell-table-row {
@@ -153,3 +170,27 @@ article {
     padding: .5em 1em;
  }
 
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

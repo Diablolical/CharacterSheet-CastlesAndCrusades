@@ -35,7 +35,7 @@
         cha: 0
     },
     modifiers: {
-        strMod: "", 
+        strMod: "",
         dexMod: "",
         conMod: "",
         intMod: "",
@@ -66,18 +66,15 @@
 /*Vue.component('ability-modifier', {
     template : '<span><input type="text" name="con-modifier" v-bind:value="conMod" readonly="readonly"><label>Ability Modifier</label></span>',
 }); */
-if(typeof character !== "object")
-{
-    alert("Unable to load character data from server");
-    var character =  {
+if (typeof character !== "object") {
+    var character = {
         general: {
             name: "",
             title: "",
             race: "",
             class: "",
             alignment: "",
-            deity: "",
-            level: 0
+            deity: ""
         },
         physical: {
             age: "",
@@ -97,40 +94,38 @@ if(typeof character !== "object")
         },
         attributes: {
             str: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false,
+                disabled: true
             },
             dex: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false,
+                disabled: true
             },
             con: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false,
+                disabled: true
             },
             int: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false,
+                disabled: true
             },
             wis: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false,
+                disabled: true
             },
             cha: {
-                "val": 0,
-                "primary": false
+                val: 0,
+                primary: false,
+                disabled: true
             }
         },
-        modifiers: {
-            strMod: "",
-            dexMod: "",
-            conMod: "",
-            intMod: "",
-            wisMod: "",
-            chaMod: ""
-        },
         level: {
-            level: 0,
+            level: 1,
             experience: 0
         },
         defense: {
@@ -143,14 +138,14 @@ if(typeof character !== "object")
             miscToHit: ""
         },
         abilities: [],
-        equipment : { 
-            weapon: [ {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false } ],
-            shield: [ {type: "", weight: 0, acBonus: 0} ],
-            armor: [ {type: "", weight: 0, acBonus: 0} ],
-            cloak: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: "" } ],
-            amulet: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
-            rings: [ { type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""} ],
-            boots: [ { type: "", weight: 0, other: ""}]
+        equipment: {
+            weapon: [{type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false}],
+            shield: [{type: "", weight: 0, acBonus: 0}],
+            armor: [{type: "", weight: 0, acBonus: 0}],
+            cloak: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            amulet: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            ring: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
+            boots: [{type: "", weight: 0, other: ""}]
         },
         packItems: {
             weapons: [],
@@ -163,12 +158,14 @@ if(typeof character !== "object")
 
 var app = new Vue({
     el: '#sheet',
-    data: { 
-        "character": character,
-        "rules": rules
+    data: {
+        character: character,
+        rules: rules,
+        classPrimary: "",
+        primaryAttributes: []
     },
     computed: {
-        strMod: function  () {
+        strMod: function () {
             var val = parseInt(this.character.attributes.str.val);
             return this.updateModifier(val);
         },
@@ -193,7 +190,7 @@ var app = new Vue({
             return this.updateModifier(val);
         },
         armorClass: function() {
-            var ac = 10 + parseInt(this.character.dexMod);
+            var ac = 10 + parseInt(this.dexMod);
             if (this.character.defense.armorAC !== "") {
                 ac += parseInt(this.character.defense.armorAC);
             }
@@ -204,16 +201,46 @@ var app = new Vue({
                 ac += parseInt(this.character.defense.miscAC);
             }
             if (this.character.equipment.armor.acBonus !== 0) {
-                ac += parseInt(this.character.equipment.armor.acBonus);
+                ac += parseInt(this.character.equipment.armor[0].acBonus);
             }
             return ac;
         },
+        levelToHitMod: function() {
+            if (this.character.general.class !== "") {
+                var className = this.character.general.class;
+                var classToHit = this.rules.classes[className].BtH[this.character.level.level];
+                console.log(classToHit);
+                return classToHit;
+            }
+        },
         toHit: function() {
-            var toHit =  20 + parseInt(this.character.dexMod) + parseInt(this.character.general.level);
+            var toHit =  20 + parseInt(this.dexMod);
             if (this.character.offense.miscToHit !== "") {
                 toHit += parseInt(this.character.offense.miscToHit);
             }
             return toHit;
+        },
+        classNames: function() {
+            return Object.keys(this.rules.classes);
+        },
+        races: function() {
+            return Object.keys(this.rules.races);
+        },
+        maxPrimaries: function() {
+            console.log("Updating Max");
+            if (this.character.general.race !== "") {
+                var maxPrimaries = this.rules.races[this.character.general.race].primaryAttributes;
+                return maxPrimaries;
+            }
+            return 1;
+        },
+        itemTypes: function() {
+            return Object.keys(this.rules.itemTypes);
+        }
+    },
+    watch: {
+        primaryAttributes: function() {
+            this.updatePrimaries();
         }
     },
     methods: {
@@ -233,61 +260,112 @@ var app = new Vue({
             Object.keys(levels).some(function (score){
                 if (val >= levels[score].min && val <= levels[score].max){
                     modifier = score;
-                    return;
                 }
             });
+            console.log(modifier);
             return modifier;
         },
         save: function() {
+            "use strict";
             var data = JSON.stringify(character);
             console.log(data);
-            $.when($.ajax({
+            $.when(
+                $.ajax({
                     method: 'POST',
                     url: '/',
                     data: data,
                     contentType: "application/json"
-            }))
-            .done(function(data){
-                console.log("Post success with data:",data);
-            })
-            .fail(function(data){
-                console.log("Post failed with data: ",data);
+                })
+            ).done(function (data) {
+                console.log("Post success with data:", data);
+                return true;
+            }).fail(function (data) {
+                console.log("Post failed with data: ", data);
+                return false;
             });
         },
-        addItem: function(location, itemType){
+        addItem: function (location, itemType) {
+            "use strict";
             var newItem = {};
-            switch(itemType){
-                case "weapon":
-                    newItem = {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false };
-                break;
-                case "shield":
-                    newItem = {type: "", weight: 0, acBonus: 0};
-                break;
-                case "armor":
-                    newItem = {type: "", weight: 0, acBonus: 0};
-                break;
-                case "magicalItem":
-                    newItem = {};
-                break;
-                default:
-                    newItem = {};
+            switch (itemType) {
+            case "weapon":
+                newItem = {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false};
+            break;
+            case "shield":
+                newItem = {type: "", weight: 0, acBonus: 0};
+            break;
+            case "armor":
+                newItem = {type: "", weight: 0, acBonus: 0};
+            break;
+            case "magicalItem":
+                newItem = {};
+            break;
+            default:
+                newItem = {};
             }
             this[location][itemType].push(newItem);
+        },
+        addAbility: function () {
+            "use strict";
+            var ability = {name: "", description: ""};
+            this.character.abilities.push(ability);
+        },
+        updateClassPrimary: function () {
+            "use strict";
+            var className = this.character.general.class;
+            var oldPrimary = this.classPrimary;
+            if (!className) {
+                var n = this.primaryAttributes.indexOf(oldPrimary);
+                this.primaryAttributes.splice(n, 1);
+                this.classPrimary = "";
+                return;
+            }
+            var classPrimary = this.rules.classes[className].primary;
+            if (oldPrimary !== "") {
+                if (oldPrimary !== classPrimary) {
+                    var i = this.primaryAttributes.indexOf(oldPrimary);
+                    this.primaryAttributes.splice(i, 1);
+                    if (this.primaryAttributes.indexOf(classPrimary) === -1) {
+                        this.primaryAttributes.push(classPrimary);
+                    }
+                }
+            } else if (this.primaryAttributes.indexOf(classPrimary) === -1) {
+                this.primaryAttributes.push(classPrimary);
+            }
+            this.classPrimary = classPrimary;
+        },
+        updateRacePrimaries: function() {
+            if (this.character.general.race !== "") {
+                if (this.primaryAttributes.length > this.maxPrimaries) {
+                    this.primaryAttributes = [];
+                    if (this.classPrimary !== "") {
+                        this.primaryAttributes.push(this.classPrimary);
+                    }
+                }
+            }
+            this.updatePrimaries();
+        },
+        updatePrimaries: function() {
+            var maxed = this.primaryAttributes.length < this.maxPrimaries ? false : true;
+            for (var attr in this.character.attributes) {
+                if (this.primaryAttributes.indexOf(attr) !== -1) {
+                    this.character.attributes[attr].primary = true;
+                    if (this.classPrimary === attr) {
+                        this.character.attributes[attr].disabled = true;
+                    }
+                    continue;
+                }
+                if (maxed) {
+                    this.character.attributes[attr].disabled = true;
+                    continue;
+                }
+                this.character.attributes[attr].disabled = false;
+            }
+            return;
         }
     }
 });
 
-
-
-/*Vue.component('weapon', {
-  template: '<li>This is a weapon</li>',
-  props: 
-});
-
-Vue.component ('armor', {
-  template: '<li>This is armor</li>'
-});
-
 Vue.component('item', {
-    template: '<li>THis is an item</li>'
-}); */
+  template: '#item-template'
+})
