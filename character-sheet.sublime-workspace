@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"pr",
+				"primary"
+			],
+			[
 				"timebk",
 				"timeblocks"
 			],
@@ -506,14 +514,6 @@
 			[
 				"widgetChart",
 				"widgetChartIndex"
-			],
-			[
-				"canv",
-				"canvasID"
-			],
-			[
-				"get",
-				"getContext"
 			]
 		]
 	},
@@ -538,19 +538,10 @@
 			}
 		},
 		{
-			"file": "views/layouts/main.handlebars",
-			"settings":
-			{
-				"buffer_size": 471,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "views/castlesandcrusades.handlebars",
 			"settings":
 			{
-				"buffer_size": 17874,
+				"buffer_size": 19389,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,28 +550,16 @@
 			"file": "config/conf.json",
 			"settings":
 			{
-				"buffer_size": 1157,
+				"buffer_size": 2302,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "<h1>test</h1>",
-			"file": "views/layouts/test.handlebars",
-			"file_size": 13,
-			"file_write_time": 131563721569586605,
+			"file": "views/layouts/main.handlebars",
 			"settings":
 			{
-				"buffer_size": 13,
-				"line_ending": "Windows",
-				"name": "<h1>test</h1>"
-			}
-		},
-		{
-			"file": "tmp/Dailuaine",
-			"settings":
-			{
-				"buffer_size": 791,
+				"buffer_size": 471,
 				"line_ending": "Windows"
 			}
 		},
@@ -588,7 +567,7 @@
 			"file": "public/css/sheet.css",
 			"settings":
 			{
-				"buffer_size": 2192,
+				"buffer_size": 2261,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -597,7 +576,7 @@
 			"file": "public/js/sheet.js",
 			"settings":
 			{
-				"buffer_size": 5892,
+				"buffer_size": 8056,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -871,10 +850,13 @@
 	],
 	"file_history":
 	[
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/public/js/rulesConf.js",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/tmp/Dailuaine",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/views/layouts/main.handlebars",
+		"/C/Users/AWilson/Documents/NodeServer/characterSheet/views/layouts/test.handlebars",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/index.js",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/views/sheet.html",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/config/conf.json",
-		"/C/Users/AWilson/Documents/NodeServer/characterSheet/tmp/Dailuaine",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/CharacterSheet.html",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/tmp/test",
 		"/C/Users/AWilson/Documents/NodeServer/characterSheet/.gitignore",
@@ -995,10 +977,7 @@
 		"/C/Users/AWilson/Documents/Platform/trunk/include/classes/admin/ScheduledEventOccurrences.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/controllers/ManageController.php",
 		"/C/Users/AWilson/Documents/Platform/trunk/include/models/admin/Purchase_Invoice.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/controllers/CheckoutController.php",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/forms/PaymentMethod_Select.php",
-		"/C/Users/AWilson/Downloads/tablesorter-master (1)/tablesorter-master/js/jquery.tablesorter.js",
-		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/views/scripts/checkout/index.phtml"
+		"/C/Users/AWilson/Documents/Platform/trunk/sites/invoice/application/controllers/CheckoutController.php"
 	],
 	"find":
 	{
@@ -1073,6 +1052,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"character.attributes.",
+			"Mod",
+			"0",
+			"0,",
+			"level",
+			"this.",
+			"other",
+			"saveBonus",
+			"acBonus",
+			"weight",
+			"{",
+			",",
+			":",
+			"armorAC",
+			"class",
+			"v-model=",
+			"this.",
+			"parseInt(this.",
+			"this.",
 			"bodyParser",
 			"validData",
 			"\">",
@@ -1181,26 +1179,7 @@
 			"timeblockID",
 			"listCompleteEnrollments",
 			"timeblockObject",
-			"block",
-			"var ",
-			"totalTime",
-			"fullDayEvent",
-			"id",
-			" id",
-			"id",
-			"fullDayEvent",
-			"totalTime",
-			"titakTune",
-			"$a",
-			"BtnGenBlue",
-			"\"",
-			"summaryText",
-			"hidden",
-			"checkforCurrentOrder",
-			"$cartSalesProp",
-			".",
-			"$event",
-			"indexOf"
+			"block"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1222,7 +1201,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1250,7 +1229,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1266,8 +1245,8 @@
 						"selection":
 						[
 							[
-								1175,
-								1175
+								792,
+								792
 							]
 						],
 						"settings":
@@ -1276,14 +1255,73 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 107.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "views/castlesandcrusades.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19389,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4176,
+								4176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 972.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config/conf.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								701,
+								701
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 394.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "views/layouts/main.handlebars",
 					"semi_transient": false,
 					"settings":
@@ -1295,8 +1333,8 @@
 						"selection":
 						[
 							[
-								254,
-								254
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1309,140 +1347,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "views/castlesandcrusades.handlebars",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17874,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17343,
-								17343
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4750.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "config/conf.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1157,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1093,
-								1093
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "views/layouts/test.handlebars",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13,
-								13
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<h1>test</h1>",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "tmp/Dailuaine",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 791,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								791,
-								791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "public/css/sheet.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2192,
+						"buffer_size": 2261,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2186,
-								2186
+								1633,
+								1633
 							]
 						],
 						"settings":
@@ -1452,27 +1374,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1998.0,
+						"translation.y": 1746.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 6,
 					"file": "public/js/sheet.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5892,
+						"buffer_size": 8056,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								371,
-								493
+								5814,
+								5814
 							]
 						],
 						"settings":
@@ -1482,14 +1404,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1080.0,
+						"translation.y": 3402.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 7,
 					"file": "tmp/test",
 					"semi_transient": false,
 					"settings":
@@ -1515,11 +1437,11 @@
 						"translation.y": 55.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 8,
 					"file": "package.json",
 					"semi_transient": false,
 					"settings":
@@ -1545,7 +1467,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
