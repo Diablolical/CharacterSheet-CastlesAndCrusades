@@ -1,159 +1,45 @@
 "use strict";
 
-/*var character =  {
-    general: {
-        name: "",
-        title: "",
-        race: "",
-        class: "",
-        alignment: "",
-        deity: "",
-        level: 0
-    },
-    physical: {
-        age: "",
-        gender: "",
-        hair: "",
-        eyes: "",
-        height: "",
-        weight: "",
-        clothing: "",
-        other: ""
-    },
-    characterization: {
-        languages: "",
-        description: "",
-        personality: "",
-        background: ""
-    },
-    attributes: {
-        str: 0,
-        dex: 0,
-        con: 0,
-        int: 0,
-        wis: 0,
-        cha: 0
-    },
-    modifiers: {
-        strMod: "",
-        dexMod: "",
-        conMod: "",
-        intMod: "",
-        wisMod: "",
-        chaMod: ""
-    },
-    level: {
-        level: 0,
-        experience: 0
-    },
-    defense: {
-        armorAC: "",
-        shieldAC: "",
-        miscAC: "",
-        HP: ""
-    },
-    offense: {
-        miscToHit: ""
-    },
-    abilities: [],
-    weapons: [
-        {type: "", bonusToHit: 0, bonusDamage: 0, damage: 0, special: ""}
-    ],
-    armor: [
-        {type: "", ac: 0}
-    ]
-};*/
-/*Vue.component('ability-modifier', {
-    template : '<span><input type="text" name="con-modifier" v-bind:value="conMod" readonly="readonly"><label>Ability Modifier</label></span>',
-}); */
-if (typeof character !== "object") {
-    var character = {
-        general: {
-            name: "",
-            title: "",
-            race: "",
-            class: "",
-            alignment: "",
-            deity: ""
-        },
-        physical: {
-            age: "",
-            gender: "",
-            hair: "",
-            eyes: "",
-            height: "",
-            weight: "",
-            clothing: "",
-            other: ""
-        },
-        characterization: {
-            languages: "",
-            description: "",
-            personality: "",
-            background: ""
-        },
-        attributes: {
-            str: {
-                val: 0,
-                primary: false,
-                disabled: true
-            },
-            dex: {
-                val: 0,
-                primary: false,
-                disabled: true
-            },
-            con: {
-                val: 0,
-                primary: false,
-                disabled: true
-            },
-            int: {
-                val: 0,
-                primary: false,
-                disabled: true
-            },
-            wis: {
-                val: 0,
-                primary: false,
-                disabled: true
-            },
-            cha: {
-                val: 0,
-                primary: false,
-                disabled: true
+var Item = {
+    template: '#add-item',
+    props: {
+        item: {
+            type: Object,
+            default: function () {
+                return rules.itemTypes.weapon;
             }
-        },
-        level: {
-            level: 1,
-            experience: 0
-        },
-        defense: {
-            armorAC: "",
-            shieldAC: "",
-            miscAC: "",
-            HP: ""
-        },
-        offense: {
-            miscToHit: ""
-        },
-        abilities: [],
-        equipment: {
-            weapon: [{type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false}],
-            shield: [{type: "", weight: 0, acBonus: 0}],
-            armor: [{type: "", weight: 0, acBonus: 0}],
-            cloak: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
-            amulet: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
-            ring: [{type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""}],
-            boots: [{type: "", weight: 0, other: ""}]
-        },
-        packItems: {
-            weapons: [],
-            armor: [],
-            magicalItems: [],
-            other: []
         }
-    };
+    },
+    methods: {
+        save: function () {
+            console.log("Saving Item", this.item);
+            this.$emit('save', this.item);
+        },
+        update: function (value) {
+            this.$emit('input', value)
+        }
+    }
+};
+
+var Ability = {
+    template: '#add-ability',
+    props: {
+        ability: {
+            type: Object,
+            default: function () {
+                return { name: "", description: ""}
+            }
+        }
+    },
+    methods: {
+        save: function (ability) {
+            console.log("Saving Ability", this.ability);
+            this.$emit('save', this.ability);
+        },
+        update: function (value) {
+            this.$emit('input', value)
+        }
+    }
 }
 
 var app = new Vue({
@@ -162,7 +48,11 @@ var app = new Vue({
         character: character,
         rules: rules,
         classPrimary: "",
-        primaryAttributes: []
+        primaryAttributes: [],
+        addingAbility: false,
+        addingItem: false,
+        newItem: {},
+        newAbility: {}
     },
     computed: {
         strMod: function () {
@@ -200,8 +90,8 @@ var app = new Vue({
             if (this.character.defense.miscAC !== "") {
                 ac += parseInt(this.character.defense.miscAC);
             }
-            if (this.character.equipment.armor.acBonus !== 0) {
-                ac += parseInt(this.character.equipment.armor[0].acBonus);
+            if (this.character.equipment.Armor.acBonus !== 0) {
+                ac += parseInt(this.character.equipment.Armor[0].acBonus);
             }
             return ac;
         },
@@ -241,6 +131,9 @@ var app = new Vue({
     watch: {
         primaryAttributes: function() {
             this.updatePrimaries();
+        },
+        newItem: function () {
+            console.log("Item updated: ", this.newItem);
         }
     },
     methods: {
@@ -284,31 +177,29 @@ var app = new Vue({
                 return false;
             });
         },
-        addItem: function (location, itemType) {
-            "use strict";
-            var newItem = {};
-            switch (itemType) {
-            case "weapon":
-                newItem = {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false};
-            break;
-            case "shield":
-                newItem = {type: "", weight: 0, acBonus: 0};
-            break;
-            case "armor":
-                newItem = {type: "", weight: 0, acBonus: 0};
-            break;
-            case "magicalItem":
-                newItem = {};
-            break;
-            default:
-                newItem = {};
-            }
-            this[location][itemType].push(newItem);
-        },
         addAbility: function () {
+            this.addingAbility = true;
+        },
+        saveAbility: function(newAbility) {
             "use strict";
-            var ability = {name: "", description: ""};
-            this.character.abilities.push(ability);
+            //placeholder
+            //var ability = {name: "", description: ""};
+            console.log(newAbility);
+            this.character.abilities.push(newAbility);
+            this.newAbility = {};
+            this.addingAbility = false;
+        },
+        addItem: function (type) {
+            this.addingItem = true;
+            this.newItem = this.rules.itemTypes[type];
+        },
+        saveItem: function(newItem) {
+            "use strict";
+            console.log(newItem);
+            var type = newItem.itemType;
+            this.character.equipment[type].push(newItem);
+            this.newItem = {};
+            this.addingItem = false;
         },
         updateClassPrimary: function () {
             "use strict";
@@ -363,9 +254,9 @@ var app = new Vue({
             }
             return;
         }
+    },
+    components: {
+        'edit-item': Item,
+        'edit-ability': Ability
     }
 });
-
-Vue.component('item', {
-  template: '#item-template'
-})

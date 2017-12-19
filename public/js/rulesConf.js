@@ -383,16 +383,19 @@ var rules = {
             }
         },
         'Half-Orc': {
-            primaryAttributes: 2,
+              primaryAttributes: 2,
             abilities: {
 
             }
         }
     },
     itemTypes: {
-        weapon: {type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false},
-        shield: {type: "", weight: 0, acBonus: 0},
-        armor: {type: "", weight: 0, acBonus: 0},
-        magicalItem: {}
+        Weapons: { itemType: "weapon", type: "", weight: 0, bonusToHit: 0, bonusDamage: 0, damage: 0, special: "", twoHanded: false},
+        Shields: { itemType: "shield", type: "", weight: 0, acBonus: 0},
+        Armor: { itemType: "armor", type: "", weight: 0, acBonus: 0},
+        Cloaks: { itemType: "cloak", type: "", weight: 0, acBonus: 0, saveBonus: 0, other: "" },
+        Amulets: { itemType: "amulet", type: "", weight: 0, acBonus: 0, saveBonus: 0, other: "" },
+        Rings: { itemType: "ring", type: "", weight: 0, acBonus: 0, saveBonus: 0, other: ""},
+        Boots: { itemType: "boots", type: "", weight: 0, other: ""}
     }
 };

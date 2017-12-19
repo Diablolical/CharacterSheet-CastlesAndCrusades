@@ -238,24 +238,39 @@
                 <section>
                     <div><span>Racial Abilities</span></div>
                     <div>
-                        <div><a href="#" v-on:click="addAbility">+</a></div>
+                        <div><a href="#" v-on:click.prevent="addAbility">+</a></div>
                     </div>
 
                     <div><span>Class Abilities</span></div>
                     <div>
-                        <div><a href="#" v-on:click="addAbility">+</a></div>
+                        <div><a href="#" v-on:click.prevent="addAbility">+</a></div>
                     </div>
                 </section>
             </article>
             <article id="equipment">
-                <h1>Weapons</h1>
-                    <section></section>
+                <h1>Items and Equipment</h1>
+                <div class="itemList" v-for="itemType in itemTypes">
+                    <h2>\{{itemType}}</h2>
+                    <ul>
+                        <li v-for="item in character.equipment[itemType]">
+                            <div v-for="(prop, name) in item" v-if="name !== 'itemType'">
+                                <label>\{{name}}</label> \{{prop}}
+                            </div>
+                        </li>
+                    </ul>
+                    <section>
+                        <div><span>Add Item</span></div>
+                        <div>
+                            <div><a href="#" v-on:click.prevent="addItem('itemType')">+</a></div>
+                        </div>
+                    </section>
+                </div>
             </article>
             <article id="spells">
                 <h1>Spell List</h1>
                 <section>
                     <div class="spell-table-row" id="spell-table-header">
-                        <div><label class="large">Spell Level</label></div>
+                        <div><label class="large">Level</label></div>
                         <div class="header-label"><label>Spells Known</label></div>
                         <div class="header-label"><label>Spells per Day</label></div>
                         <div class="header-label"><label>Bonus Spells</label></div>
@@ -325,39 +340,66 @@
             <div class="footer">
                 <button id="save" v-on:click="save">Save</button>
             </div>
+            <edit-item v-bind:item="newItem" v-if="addingItem" v-on:save="saveItem" @close="addingItem = false">
+            </edit-item>
+            <edit-ability v-bind:ability="newAbility" v-if="addingAbility" v-on:save="saveAbility" @close="addingAbility = false">
+            </edit-ability>
         </form>
     </div>
 </div>
 <footer>
+
 </footer>
 <script type="text/javascript">
     var character = {{{data}}};
-
-    console.log(character);
 </script>
 <script type="text/javascript" src="js/rulesConf.js"></script>
 <script type="text/javascript" src="js/sheet.js"></script>
-<script type="text/x-template" id="item-template">
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">
-              Add Item
-            </slot>
-          </div>
-          <div class="modal-body">
-            <slot name="body">
-              <label for="type">Select Type</label>
-              <select name="item-type" v-model="type">
-                  <option value="">Select type</option>
-                  <option v-for="itemType in itemTypes" :value="itemType">\{{ itemType }}</option>
-                </select>
-            </slot>
-          </div>
+<script type="text/x-template" id="add-item">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <slot name="header">
+                      <h2>Add \{{ item.itemType }} </h2>
+                    </slot>
+                    <div class="modal-body">
+                        <div v-for="(prop, name) in item" v-if="name !== 'itemType'">
+                            <label class="large"> \{{name}} </label>
+                            <input class="smallInput" type="text" v-model='item[name]'/>
+                        </div>
+                    </div>
+                    <button class="modal-default-button" @click="$emit('close')">
+                    Cancel
+                    </button>
+                    <button class="modal-default-button" @click="save">
+                    Save
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </transition>
+    </transition>
+</script>
+<script type="text/x-template" id="add-ability">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <slot name="header">
+                        <h2>Add Ability</h2>
+                    </slot>
+                    <div class="modal-body">
+                        <label>Ability Name</label><input type="text" name="abilityName" v-model="ability[name]"/>
+                        <label>Ability Description</label><textarea v-model="ability[description]"></textarea>
+                    </div>
+                    <button class="modal-default-button" @click="$emit('close')">
+                    Cancel
+                    </button>
+                    <button class="modal-default-button" @click="save">
+                    Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </transition>
 </script>

@@ -81,13 +81,13 @@
         },
         "abilities": [],
         "equipment": {
-            "weapon": [ { "type": "", "weight": 0, "bonusToHit": 0, "bonusDamage": 0, "damage": 0, "special": "", "twoHanded": false } ],
-            "shield": [ { "type": "", "weight": 0, "acBonus": 0} ],
-            "armor": [ { "type": "", "weight": 0, "acBonus": 0} ],
-            "cloak": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": "" } ],
-            "amulet": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": ""} ],
-            "rings": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": ""} ],
-            "boots": [ { "type": "", "weight": 0, "other": ""} ]
+            "Weapons": [ { "type": "", "weight": 0, "bonusToHit": 0, "bonusDamage": 0, "damage": 0, "special": "", "twoHanded": false } ],
+            "Shields": [ { "type": "", "weight": 0, "acBonus": 0} ],
+            "Armor": [ { "type": "", "weight": 0, "acBonus": 0} ],
+            "Cloaks": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": "" } ],
+            "Amulets": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": ""} ],
+            "Rings": [ { "type": "", "weight": 0, "acBonus": 0, "saveBonus": 0, "other": ""} ],
+            "Boots": [ { "type": "", "weight": 0, "other": ""} ]
         },
         "packItems": {
             "weapons": [],
